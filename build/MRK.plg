@@ -1,0 +1,105 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+S:\ESE519\ese519_git\ese519\lab4\basic_bmac-slave\slave_1\MRK_slave1.uvproj
+Project File Date:  11/13/2013
+
+<h2>Output:</h2>
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(316): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32256 RO-data=1576 RW-data=364 ZI-data=3624  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(316): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32476 RO-data=1576 RW-data=364 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(316): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32476 RO-data=1576 RW-data=364 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(315): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32420 RO-data=1576 RW-data=364 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(315): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32348 RO-data=1576 RW-data=364 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(315): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32340 RO-data=1576 RW-data=360 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+Build target 'mbed NXP LPC1768'
+linking...
+Program Size: Code=32340 RO-data=1576 RW-data=360 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 0 Warning(s).
+Build target 'mbed NXP LPC1768'
+compiling main.cpp...
+main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(138): warning:  #550-D: variable "val" was set but never used
+main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
+main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
+main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
+main.cpp(315): warning:  #550-D: variable "val" was set but never used
+linking...
+Program Size: Code=32340 RO-data=1576 RW-data=360 ZI-data=4136  
+After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
+".\build\MRK.axf" - 0 Errors, 7 Warning(s).
