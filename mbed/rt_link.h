@@ -139,7 +139,7 @@ uint8_t _rtl_time_token_status;
 
 
 RF_TX_INFO rtl_tsync_tx;
-uint8_t rtl_tsync_buf[PKT_DATA_START];
+char rtl_tsync_buf[PKT_DATA_START];
 
 uint8_t _rtl_contention_pending;
 uint8_t _rtl_contention_slots;

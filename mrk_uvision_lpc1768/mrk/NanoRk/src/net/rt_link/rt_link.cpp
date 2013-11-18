@@ -429,9 +429,9 @@ uint8_t _rtl_rx_sync ()
         uint8_t explicit_sync_pkt;
 				rtl_rx_data_ready = 1;
         //rtl_rx_slot = 0;
-        global_slot = (volatile)rtl_rfRxInfo.pPayload[GLOBAL_SLOT];
+        global_slot = rtl_rfRxInfo.pPayload[GLOBAL_SLOT];
         global_slot <<= 8;
-        global_slot |= (volatile)rtl_rfRxInfo.pPayload[GLOBAL_SLOT + 1];
+        global_slot |= rtl_rfRxInfo.pPayload[GLOBAL_SLOT + 1];
         //global_slot++;
         tmp_token= 0x7F & ((volatile)rtl_rfRxInfo.pPayload[TIME_SYNC_TOKEN]);
 				//printf( "%d: ",global_slot );
