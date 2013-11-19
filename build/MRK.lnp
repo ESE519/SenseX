@@ -20,9 +20,9 @@
 ".\build\ff_basic_sensor.o"
 ".\build\nrk_driver.o"
 ".\build\bmac.o"
+".\build\rt_link.o"
 ".\build\basic_rf.o"
 ".\build\mrf24j40.o"
-".\build\rt_link.o"
 --strict --scatter ".\mbed\LPC1768\LPC1768.sct"
 
 .\mbed\LPC1768\startup_LPC17xx.o

@@ -67,8 +67,6 @@
 .\build\rt_link.o: .\mbed\nrk_cfg.h
 .\build\rt_link.o: .\mbed\nrk_task.h
 .\build\rt_link.o: .\mbed\nrk.h
-.\build\rt_link.o: .\mbed\rtl_scheduler.h
-.\build\rt_link.o: .\mbed\rtl_debug.h
 .\build\rt_link.o: .\mbed\nrk_timer.h
 .\build\rt_link.o: .\mbed\nrk_error.h
 .\build\rt_link.o: .\mbed\rtl_defs.h

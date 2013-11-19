@@ -573,6 +573,194 @@ Section Cross References
     bmac.o(.ARM.exidx) refers to bmac.o(i._Z8_bmac_txv) for i._Z8_bmac_txv
     bmac.o(.ARM.exidx) refers to bmac.o(i._Z12bmac_nw_taskv) for i._Z12bmac_nw_taskv
     bmac.o(.ARM.exidx) refers to bmac.o(i._Z16bmac_task_configv) for i._Z16bmac_task_configv
+    rt_link.o(i._Z10rtl_tx_pktP10RF_TX_INFOhh) refers to rand.o(.emb_text) for rand
+    rt_link.o(i._Z10rtl_tx_pktP10RF_TX_INFOhh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z10rtl_tx_pktP10RF_TX_INFOhh) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z11rtl_nw_taskv) refers to nrk_task.o(i._Z26nrk_wait_until_next_periodv) for nrk_wait_until_next_period()
+    rt_link.o(i._Z11rtl_nw_taskv) refers to nrk_time.o(i._Z12nrk_time_getP10nrk_time_t) for nrk_time_get(nrk_time_t*)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to nrk_timer.o(i._Z25_nrk_high_speed_timer_getv) for _nrk_high_speed_timer_get()
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z22_rtl_clear_sched_cachev) for _rtl_clear_sched_cache()
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z12_rtl_rx_syncv) for _rtl_rx_sync()
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z21_rtl_match_abs_wakeupt) for _rtl_match_abs_wakeup(unsigned short)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z31rtl_get_slots_until_next_wakeupt) for rtl_get_slots_until_next_wakeup(unsigned short)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z24_rtl_get_next_abs_wakeupt) for _rtl_get_next_abs_wakeup(unsigned short)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z10rtl_tx_pktP10RF_TX_INFOhh) for rtl_tx_pkt(RF_TX_INFO*, unsigned char, unsigned char)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z7_rtl_txh) for _rtl_tx(unsigned char)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to nrk_task.o(i._Z20nrk_wait_until_tickst) for nrk_wait_until_ticks(unsigned short)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(i._Z7_rtl_rxh) for _rtl_rx(unsigned char)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to ulib.o(i._Z11nrk_led_clri) for nrk_led_clr(int)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to nrk_task.o(i._Z29nrk_wait_until_next_n_periodst) for nrk_wait_until_next_n_periods(unsigned short)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to ulib.o(i._Z11nrk_led_seti) for nrk_led_set(int)
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z11rtl_nw_taskv) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to basic_rf.o(i._Z9rf_set_rxP10RF_RX_INFOh) for rf_set_rx(RF_RX_INFO*, unsigned char)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to basic_rf.o(i._Z16rf_polling_rx_onv) for rf_polling_rx_on()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z20_nrk_set_next_wakeuph) for _nrk_set_next_wakeup(unsigned char)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z17_nrk_os_timer_getv) for _nrk_os_timer_get()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_cpu.o(i._Z16nrk_battery_savev) for nrk_battery_save()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to basic_rf.o(i._Z15rf_rx_check_sfdv) for rf_rx_check_sfd()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z27_nrk_high_speed_timer_resetv) for _nrk_high_speed_timer_reset()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z25_nrk_high_speed_timer_getv) for _nrk_high_speed_timer_get()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to basic_rf.o(i._Z20rf_polling_rx_packetv) for rf_polling_rx_packet()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to basic_rf.o(i._Z9rf_rx_offv) for rf_rx_off()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_events.o(i._Z16nrk_event_signala) for nrk_event_signal(signed char)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to rt_link.o(i._Z19_rtl_clr_abs_wakeupt) for _rtl_clr_abs_wakeup(unsigned short)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to rt_link.o(i._Z18rtl_set_abs_wakeupth) for rtl_set_abs_wakeup(unsigned short, unsigned char)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to rt_link.o(i._Z22_rtl_clear_sched_cachev) for _rtl_clear_sched_cache()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z18_nrk_os_timer_stopv) for _nrk_os_timer_stop()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z19_nrk_os_timer_resetv) for _nrk_os_timer_reset()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z17_nrk_os_timer_seth) for _nrk_os_timer_set(unsigned char)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z25nrk_high_speed_timer_waittt) for nrk_high_speed_timer_wait(unsigned short, unsigned short)
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to nrk_timer.o(i._Z19_nrk_os_timer_startv) for _nrk_os_timer_start()
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z12_rtl_rx_syncv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z12rtl_get_slotv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z14rtl_debug_initv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z14rtl_rx_pkt_getPhPaS_) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z14rtl_rx_pkt_getPhPaS_) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z14rtl_tx_abs_pktPcht) refers to rt_link.o(i._Z18rtl_set_abs_wakeupth) for rtl_set_abs_wakeup(unsigned short, unsigned char)
+    rt_link.o(i._Z14rtl_tx_abs_pktPcht) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z14rtl_tx_abs_pktPcht) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z15rtl_set_channelh) refers to basic_rf.o(i._Z14rf_set_channelh) for rf_set_channel(unsigned char)
+    rt_link.o(i._Z15rtl_set_channelh) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z15rtl_sync_statusv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z15rtl_task_configv) refers to nrk_cpu.o(i._Z16nrk_task_set_stkP9task_typePjt) for nrk_task_set_stk(task_type*, unsigned*, unsigned short)
+    rt_link.o(i._Z15rtl_task_configv) refers to nrk_task.o(i._Z17nrk_activate_taskP9task_type) for nrk_activate_task(task_type*)
+    rt_link.o(i._Z15rtl_task_configv) refers to rt_link.o(i._Z11rtl_nw_taskv) for rtl_nw_task()
+    rt_link.o(i._Z15rtl_task_configv) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z16rtl_clr_schedule11rtl_rx_tx_th) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z16rtl_clr_schedule11rtl_rx_tx_th) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z16rtl_debug_rx_pktv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z16rtl_get_scheduleh) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z16rtl_rx_pkt_checkv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z16rtl_set_schedule11rtl_rx_tx_thh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z16rtl_set_schedule11rtl_rx_tx_thh) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z16rtl_set_tx_powerh) refers to basic_rf.o(i._Z11rf_tx_powerh) for rf_tx_power(unsigned char)
+    rt_link.o(i._Z16rtl_tx_pkt_checkh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z18rtl_debug_rx_tsyncv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z18rtl_rx_pkt_releasev) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z18rtl_set_abs_wakeupth) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z18rtl_set_contentionhh) refers to rt_link.o(i._Z16rtl_set_schedule11rtl_rx_tx_thh) for rtl_set_schedule(rtl_rx_tx_t, unsigned char, unsigned char)
+    rt_link.o(i._Z18rtl_set_contentionhh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z19_rtl_clr_abs_wakeupt) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z19rtl_get_global_slotv) refers to nrk_time.o(i._Z12nrk_time_getP10nrk_time_t) for nrk_time_get(nrk_time_t*)
+    rt_link.o(i._Z19rtl_get_global_slotv) refers to nrk_time.o(i._Z12nrk_time_subP10nrk_time_tS_S_) for nrk_time_sub(nrk_time_t*, nrk_time_t, nrk_time_t)
+    rt_link.o(i._Z19rtl_get_global_slotv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z21_rtl_match_abs_wakeupt) refers to rt_link.o(i._Z19_rtl_clr_abs_wakeupt) for _rtl_clr_abs_wakeup(unsigned short)
+    rt_link.o(i._Z21_rtl_match_abs_wakeupt) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z21rtl_debug_dropped_pktv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z21rtl_debug_time_updatet) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z21rtl_get_rx_pkt_signalv) refers to rt_link.o(i._Z9rtl_readyv) for rtl_ready()
+    rt_link.o(i._Z21rtl_get_rx_pkt_signalv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z21rtl_rx_pkt_set_bufferPch) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z21rtl_wait_until_rx_pktv) refers to nrk_events.o(i._Z19nrk_signal_registera) for nrk_signal_register(signed char)
+    rt_link.o(i._Z21rtl_wait_until_rx_pktv) refers to nrk_events.o(i._Z14nrk_event_waitj) for nrk_event_wait(unsigned)
+    rt_link.o(i._Z21rtl_wait_until_rx_pktv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z22_rtl_clear_sched_cachev) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z22rtl_debug_get_pkt_lossv) refers to rt_link.o(i._Z9bit_counth) for bit_count(unsigned char)
+    rt_link.o(i._Z22rtl_debug_get_pkt_lossv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z22rtl_get_tx_done_signalv) refers to rt_link.o(i._Z9rtl_readyv) for rtl_ready()
+    rt_link.o(i._Z22rtl_get_tx_done_signalv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z22rtl_wait_until_tx_doneh) refers to nrk_events.o(i._Z19nrk_signal_registera) for nrk_signal_register(signed char)
+    rt_link.o(i._Z22rtl_wait_until_tx_doneh) refers to nrk_events.o(i._Z14nrk_event_waitj) for nrk_event_wait(unsigned)
+    rt_link.o(i._Z22rtl_wait_until_tx_doneh) refers to rt_link.o(i._Z16rtl_tx_pkt_checkh) for rtl_tx_pkt_check(unsigned char)
+    rt_link.o(i._Z22rtl_wait_until_tx_doneh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z23_rtl_clr_abs_all_wakeupv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z23rtl_check_abs_tx_statusv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z23rtl_debug_dropped_tsynch) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z23rtl_wait_until_rx_or_txv) refers to nrk_events.o(i._Z19nrk_signal_registera) for nrk_signal_register(signed char)
+    rt_link.o(i._Z23rtl_wait_until_rx_or_txv) refers to nrk_events.o(i._Z14nrk_event_waitj) for nrk_event_wait(unsigned)
+    rt_link.o(i._Z23rtl_wait_until_rx_or_txv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z24_rtl_get_next_abs_wakeupt) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z24rtl_debug_get_tsync_lossv) refers to rt_link.o(i._Z9bit_counth) for bit_count(unsigned char)
+    rt_link.o(i._Z24rtl_debug_get_tsync_lossv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z24rtl_debug_time_get_driftv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z25rtl_debug_get_tsync_delayh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z31rtl_get_slots_until_next_wakeupt) refers to rt_link.o(i._Z16rtl_get_scheduleh) for rtl_get_schedule(unsigned char)
+    rt_link.o(i._Z31rtl_get_slots_until_next_wakeupt) refers to rt_link.o(i._Z8_rtl_powhh) for _rtl_pow(unsigned char, unsigned char)
+    rt_link.o(i._Z31rtl_get_slots_until_next_wakeupt) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z7_rtl_rxh) refers to basic_rf.o(i._Z9rf_set_rxP10RF_RX_INFOh) for rf_set_rx(RF_RX_INFO*, unsigned char)
+    rt_link.o(i._Z7_rtl_rxh) refers to basic_rf.o(i._Z16rf_polling_rx_onv) for rf_polling_rx_on()
+    rt_link.o(i._Z7_rtl_rxh) refers to nrk_timer.o(i._Z17_nrk_os_timer_getv) for _nrk_os_timer_get()
+    rt_link.o(i._Z7_rtl_rxh) refers to basic_rf.o(i._Z9rf_rx_offv) for rf_rx_off()
+    rt_link.o(i._Z7_rtl_rxh) refers to basic_rf.o(i._Z15rf_rx_check_sfdv) for rf_rx_check_sfd()
+    rt_link.o(i._Z7_rtl_rxh) refers to basic_rf.o(i._Z20rf_polling_rx_packetv) for rf_polling_rx_packet()
+    rt_link.o(i._Z7_rtl_rxh) refers to nrk_events.o(i._Z16nrk_event_signala) for nrk_event_signal(signed char)
+    rt_link.o(i._Z7_rtl_rxh) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z7_rtl_rxh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z7_rtl_txh) refers to basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) for rf_tx_tdma_packet(RF_TX_INFO*, unsigned short, unsigned short)
+    rt_link.o(i._Z7_rtl_txh) refers to nrk_events.o(i._Z16nrk_event_signala) for nrk_event_signal(signed char)
+    rt_link.o(i._Z7_rtl_txh) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z7_rtl_txh) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to nrk_events.o(i._Z17nrk_signal_createv) for nrk_signal_create()
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to ulib.o(i._Z11nrk_kprintfPKc) for nrk_kprintf(const char*)
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to nrk_error.o(i._Z20nrk_kernel_error_addhh) for nrk_kernel_error_add(unsigned char, unsigned char)
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to nrk_timer.o(i._Z27_nrk_high_speed_timer_startv) for _nrk_high_speed_timer_start()
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to rt_link.o(i._Z23_rtl_clr_abs_all_wakeupv) for _rtl_clr_abs_all_wakeup()
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to basic_rf.o(i._Z7rf_initP10RF_RX_INFOhtt) for rf_init(RF_RX_INFO*, unsigned char, unsigned short, unsigned short)
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to nrk.o(.data) for nrk_cur_task_TCB
+    rt_link.o(i._Z8rtl_init15rtl_node_mode_t) refers to rt_link.o(.bss) for .bss
+    rt_link.o(i._Z9rtl_readyv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z9rtl_startv) refers to rt_link.o(i._Z16rtl_set_schedule11rtl_rx_tx_thh) for rtl_set_schedule(rtl_rx_tx_t, unsigned char, unsigned char)
+    rt_link.o(i._Z9rtl_startv) refers to rt_link.o(i._Z22_rtl_clear_sched_cachev) for _rtl_clear_sched_cache()
+    rt_link.o(i._Z9rtl_startv) refers to rt_link.o(.data) for .data
+    rt_link.o(i._Z9rtl_startv) refers to rt_link.o(.bss) for .bss
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_set_schedule11rtl_rx_tx_thh) for i._Z16rtl_set_schedule11rtl_rx_tx_thh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_get_scheduleh) for i._Z16rtl_get_scheduleh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_clr_schedule11rtl_rx_tx_th) for i._Z16rtl_clr_schedule11rtl_rx_tx_th
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z23_rtl_clr_abs_all_wakeupv) for i._Z23_rtl_clr_abs_all_wakeupv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z18rtl_set_abs_wakeupth) for i._Z18rtl_set_abs_wakeupth
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z19_rtl_clr_abs_wakeupt) for i._Z19_rtl_clr_abs_wakeupt
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21_rtl_match_abs_wakeupt) for i._Z21_rtl_match_abs_wakeupt
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z24_rtl_get_next_abs_wakeupt) for i._Z24_rtl_get_next_abs_wakeupt
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z22_rtl_clear_sched_cachev) for i._Z22_rtl_clear_sched_cachev
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z8_rtl_powhh) for i._Z8_rtl_powhh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z31rtl_get_slots_until_next_wakeupt) for i._Z31rtl_get_slots_until_next_wakeupt
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21rtl_debug_time_updatet) for i._Z21rtl_debug_time_updatet
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z24rtl_debug_time_get_driftv) for i._Z24rtl_debug_time_get_driftv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z14rtl_debug_initv) for i._Z14rtl_debug_initv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z9bit_counth) for i._Z9bit_counth
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z22rtl_debug_get_pkt_lossv) for i._Z22rtl_debug_get_pkt_lossv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z24rtl_debug_get_tsync_lossv) for i._Z24rtl_debug_get_tsync_lossv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_debug_rx_pktv) for i._Z16rtl_debug_rx_pktv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21rtl_debug_dropped_pktv) for i._Z21rtl_debug_dropped_pktv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z25rtl_debug_get_tsync_delayh) for i._Z25rtl_debug_get_tsync_delayh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z18rtl_debug_rx_tsyncv) for i._Z18rtl_debug_rx_tsyncv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z23rtl_debug_dropped_tsynch) for i._Z23rtl_debug_dropped_tsynch
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z9rtl_readyv) for i._Z9rtl_readyv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z22rtl_get_tx_done_signalv) for i._Z22rtl_get_tx_done_signalv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21rtl_get_rx_pkt_signalv) for i._Z21rtl_get_rx_pkt_signalv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_tx_pkt_checkh) for i._Z16rtl_tx_pkt_checkh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z22rtl_wait_until_tx_doneh) for i._Z22rtl_wait_until_tx_doneh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21rtl_wait_until_rx_pktv) for i._Z21rtl_wait_until_rx_pktv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z23rtl_wait_until_rx_or_txv) for i._Z23rtl_wait_until_rx_or_txv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z19rtl_get_global_slotv) for i._Z19rtl_get_global_slotv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z26rtl_wait_until_global_slott) for i._Z26rtl_wait_until_global_slott
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z14rtl_rx_pkt_getPhPaS_) for i._Z14rtl_rx_pkt_getPhPaS_
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z12rtl_get_slotv) for i._Z12rtl_get_slotv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z15rtl_sync_statusv) for i._Z15rtl_sync_statusv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z23rtl_check_abs_tx_statusv) for i._Z23rtl_check_abs_tx_statusv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z14rtl_tx_abs_pktPcht) for i._Z14rtl_tx_abs_pktPcht
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z10rtl_tx_pktP10RF_TX_INFOhh) for i._Z10rtl_tx_pktP10RF_TX_INFOhh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z18rtl_rx_pkt_releasev) for i._Z18rtl_rx_pkt_releasev
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_rx_pkt_checkv) for i._Z16rtl_rx_pkt_checkv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z15rtl_set_channelh) for i._Z15rtl_set_channelh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z12_rtl_rx_syncv) for i._Z12_rtl_rx_syncv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z7_rtl_rxh) for i._Z7_rtl_rxh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z7_rtl_txh) for i._Z7_rtl_txh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z22rtl_set_cycle_callbackPv) for i._Z22rtl_set_cycle_callbackPv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21rtl_set_slot_callbackPv) for i._Z21rtl_set_slot_callbackPv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z19rtl_set_rx_callbackPv) for i._Z19rtl_set_rx_callbackPv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z19rtl_set_tx_callbackPv) for i._Z19rtl_set_tx_callbackPv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z20rtl_set_abs_callbackPv) for i._Z20rtl_set_abs_callbackPv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z16rtl_set_tx_powerh) for i._Z16rtl_set_tx_powerh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z18rtl_set_contentionhh) for i._Z18rtl_set_contentionhh
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z21rtl_rx_pkt_set_bufferPch) for i._Z21rtl_rx_pkt_set_bufferPch
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z8rtl_init15rtl_node_mode_t) for i._Z8rtl_init15rtl_node_mode_t
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z9rtl_startv) for i._Z9rtl_startv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z11rtl_nw_taskv) for i._Z11rtl_nw_taskv
+    rt_link.o(.ARM.exidx) refers to rt_link.o(i._Z15rtl_task_configv) for i._Z15rtl_task_configv
     basic_rf.o(i.EINT3_IRQHandler) refers to mrf24j40.o(i._Z14mrf_read_shorth) for mrf_read_short(unsigned char)
     basic_rf.o(i.EINT3_IRQHandler) refers to basic_rf.o(i._Z18rf_parse_rx_packetv) for rf_parse_rx_packet()
     basic_rf.o(i.EINT3_IRQHandler) refers to bmac.o(i._Z14rf_rx_callbackP10RF_RX_INFO) for rf_rx_callback(RF_RX_INFO*)
@@ -610,6 +798,15 @@ Section Cross References
     basic_rf.o(i._Z16rf_polling_rx_onv) refers to basic_rf.o(.data) for .data
     basic_rf.o(i._Z17rf_rx_check_fifopv) refers to basic_rf.o(.data) for .data
     basic_rf.o(i._Z17rf_set_cca_thresha) refers to basic_rf.o(.data) for .data
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to mrf24j40.o(i._Z14mrf_write_longth) for mrf_write_long(unsigned short, unsigned char)
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to nrk_timer.o(i._Z25nrk_high_speed_timer_waittt) for nrk_high_speed_timer_wait(unsigned short, unsigned short)
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to basic_rf.o(i._Z8rf_rx_onv) for rf_rx_on()
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to hal_wait.o(i._Z7halWaitt) for halWait(unsigned short)
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to basic_rf.o(i._Z15rf_rx_check_ccav) for rf_rx_check_cca()
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to mrf24j40.o(i._Z15mrf_write_shorthh) for mrf_write_short(unsigned char, unsigned char)
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to mrf24j40.o(i._Z14mrf_read_shorth) for mrf_read_short(unsigned char)
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to basic_rf.o(.data) for .data
+    basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt) refers to basic_rf.o(.bss) for .bss
     basic_rf.o(i._Z18rf_auto_ack_enablev) refers to mrf24j40.o(i._Z14mrf_read_shorth) for mrf_read_short(unsigned char)
     basic_rf.o(i._Z18rf_auto_ack_enablev) refers to mrf24j40.o(i._Z15mrf_write_shorthh) for mrf_write_short(unsigned char, unsigned char)
     basic_rf.o(i._Z18rf_auto_ack_enablev) refers to basic_rf.o(.data) for .data
@@ -673,6 +870,7 @@ Section Cross References
     basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z13rf_carrier_onv) for i._Z13rf_carrier_onv
     basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z14rf_carrier_offv) for i._Z14rf_carrier_offv
     basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z17rf_rx_check_fifopv) for i._Z17rf_rx_check_fifopv
+    basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z15rf_rx_check_sfdv) for i._Z15rf_rx_check_sfdv
     basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z17rf_set_cca_thresha) for i._Z17rf_set_cca_thresha
     basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z15rf_set_cca_modeh) for i._Z15rf_set_cca_modeh
     basic_rf.o(.ARM.exidx) refers to basic_rf.o(i._Z15rf_rx_check_ccav) for i._Z15rf_rx_check_ccav
@@ -2267,6 +2465,119 @@ Removing Unused input sections from the image.
     Removing bmac.o(.ARM.exidx), (8 bytes).
     Removing bmac.o(.bss), (328 bytes).
     Removing bmac.o(.data), (24 bytes).
+    Removing rt_link.o(i._Z10rtl_tx_pktP10RF_TX_INFOhh), (76 bytes).
+    Removing rt_link.o(i._Z11rtl_nw_taskv), (440 bytes).
+    Removing rt_link.o(i._Z12_rtl_rx_syncv), (432 bytes).
+    Removing rt_link.o(i._Z12rtl_get_slotv), (12 bytes).
+    Removing rt_link.o(i._Z14rtl_debug_initv), (48 bytes).
+    Removing rt_link.o(i._Z14rtl_rx_pkt_getPhPaS_), (48 bytes).
+    Removing rt_link.o(i._Z14rtl_tx_abs_pktPcht), (60 bytes).
+    Removing rt_link.o(i._Z15rtl_set_channelh), (12 bytes).
+    Removing rt_link.o(i._Z15rtl_sync_statusv), (12 bytes).
+    Removing rt_link.o(i._Z15rtl_task_configv), (72 bytes).
+    Removing rt_link.o(i._Z16rtl_clr_schedule11rtl_rx_tx_th), (64 bytes).
+    Removing rt_link.o(i._Z16rtl_debug_rx_pktv), (52 bytes).
+    Removing rt_link.o(i._Z16rtl_get_scheduleh), (36 bytes).
+    Removing rt_link.o(i._Z16rtl_rx_pkt_checkv), (12 bytes).
+    Removing rt_link.o(i._Z16rtl_set_schedule11rtl_rx_tx_thh), (76 bytes).
+    Removing rt_link.o(i._Z16rtl_set_tx_powerh), (4 bytes).
+    Removing rt_link.o(i._Z16rtl_tx_pkt_checkh), (36 bytes).
+    Removing rt_link.o(i._Z18rtl_debug_rx_tsyncv), (56 bytes).
+    Removing rt_link.o(i._Z18rtl_rx_pkt_releasev), (12 bytes).
+    Removing rt_link.o(i._Z18rtl_set_abs_wakeupth), (60 bytes).
+    Removing rt_link.o(i._Z18rtl_set_contentionhh), (56 bytes).
+    Removing rt_link.o(i._Z19_rtl_clr_abs_wakeupt), (40 bytes).
+    Removing rt_link.o(i._Z19rtl_get_global_slotv), (64 bytes).
+    Removing rt_link.o(i._Z19rtl_set_rx_callbackPv), (2 bytes).
+    Removing rt_link.o(i._Z19rtl_set_tx_callbackPv), (2 bytes).
+    Removing rt_link.o(i._Z20rtl_set_abs_callbackPv), (2 bytes).
+    Removing rt_link.o(i._Z21_rtl_match_abs_wakeupt), (56 bytes).
+    Removing rt_link.o(i._Z21rtl_debug_dropped_pktv), (52 bytes).
+    Removing rt_link.o(i._Z21rtl_debug_time_updatet), (16 bytes).
+    Removing rt_link.o(i._Z21rtl_get_rx_pkt_signalv), (28 bytes).
+    Removing rt_link.o(i._Z21rtl_rx_pkt_set_bufferPch), (24 bytes).
+    Removing rt_link.o(i._Z21rtl_set_slot_callbackPv), (2 bytes).
+    Removing rt_link.o(i._Z21rtl_wait_until_rx_pktv), (36 bytes).
+    Removing rt_link.o(i._Z22_rtl_clear_sched_cachev), (24 bytes).
+    Removing rt_link.o(i._Z22rtl_debug_get_pkt_lossv), (36 bytes).
+    Removing rt_link.o(i._Z22rtl_get_tx_done_signalv), (28 bytes).
+    Removing rt_link.o(i._Z22rtl_set_cycle_callbackPv), (2 bytes).
+    Removing rt_link.o(i._Z22rtl_wait_until_tx_doneh), (48 bytes).
+    Removing rt_link.o(i._Z23_rtl_clr_abs_all_wakeupv), (28 bytes).
+    Removing rt_link.o(i._Z23rtl_check_abs_tx_statusv), (12 bytes).
+    Removing rt_link.o(i._Z23rtl_debug_dropped_tsynch), (56 bytes).
+    Removing rt_link.o(i._Z23rtl_wait_until_rx_or_txv), (48 bytes).
+    Removing rt_link.o(i._Z24_rtl_get_next_abs_wakeupt), (64 bytes).
+    Removing rt_link.o(i._Z24rtl_debug_get_tsync_lossv), (36 bytes).
+    Removing rt_link.o(i._Z24rtl_debug_time_get_driftv), (12 bytes).
+    Removing rt_link.o(i._Z25rtl_debug_get_tsync_delayh), (20 bytes).
+    Removing rt_link.o(i._Z26rtl_wait_until_global_slott), (6 bytes).
+    Removing rt_link.o(i._Z31rtl_get_slots_until_next_wakeupt), (108 bytes).
+    Removing rt_link.o(i._Z7_rtl_rxh), (208 bytes).
+    Removing rt_link.o(i._Z7_rtl_txh), (144 bytes).
+    Removing rt_link.o(i._Z8_rtl_powhh), (28 bytes).
+    Removing rt_link.o(i._Z8rtl_init15rtl_node_mode_t), (284 bytes).
+    Removing rt_link.o(i._Z9bit_counth), (34 bytes).
+    Removing rt_link.o(i._Z9rtl_readyv), (20 bytes).
+    Removing rt_link.o(i._Z9rtl_startv), (60 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.ARM.exidx), (8 bytes).
+    Removing rt_link.o(.bss), (918 bytes).
+    Removing rt_link.o(.bss), (115 bytes).
+    Removing rt_link.o(.data), (108 bytes).
     Removing basic_rf.o(i._Z11rf_power_upv), (30 bytes).
     Removing basic_rf.o(i._Z11rf_tx_powerh), (16 bytes).
     Removing basic_rf.o(i._Z12rf_data_modev), (10 bytes).
@@ -2278,6 +2589,7 @@ Removing Unused input sections from the image.
     Removing basic_rf.o(i._Z14rf_carrier_offv), (34 bytes).
     Removing basic_rf.o(i._Z14rf_set_channelh), (40 bytes).
     Removing basic_rf.o(i._Z15rf_rx_check_ccav), (28 bytes).
+    Removing basic_rf.o(i._Z15rf_rx_check_sfdv), (4 bytes).
     Removing basic_rf.o(i._Z15rf_set_cca_modeh), (30 bytes).
     Removing basic_rf.o(i._Z16rf_flush_rx_fifov), (8 bytes).
     Removing basic_rf.o(i._Z16rf_polling_rx_onv), (40 bytes).
@@ -2285,7 +2597,7 @@ Removing Unused input sections from the image.
     Removing basic_rf.o(i._Z16rf_tx_set_serialv), (2 bytes).
     Removing basic_rf.o(i._Z17rf_rx_check_fifopv), (12 bytes).
     Removing basic_rf.o(i._Z17rf_set_cca_thresha), (44 bytes).
-    Removing basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt), (4 bytes).
+    Removing basic_rf.o(i._Z17rf_tx_tdma_packetP10RF_TX_INFOtt), (296 bytes).
     Removing basic_rf.o(i._Z18rf_auto_ack_enablev), (32 bytes).
     Removing basic_rf.o(i._Z18rf_security_enablev), (2 bytes).
     Removing basic_rf.o(i._Z19rf_auto_ack_disablev), (32 bytes).
@@ -2300,6 +2612,7 @@ Removing Unused input sections from the image.
     Removing basic_rf.o(i._Z27rf_security_set_ctr_counterPh), (2 bytes).
     Removing basic_rf.o(i._Z7rf_initP10RF_RX_INFOhtt), (80 bytes).
     Removing basic_rf.o(i._Z9rf_set_rxP10RF_RX_INFOh), (48 bytes).
+    Removing basic_rf.o(.ARM.exidx), (8 bytes).
     Removing basic_rf.o(.ARM.exidx), (8 bytes).
     Removing basic_rf.o(.ARM.exidx), (8 bytes).
     Removing basic_rf.o(.ARM.exidx), (8 bytes).
@@ -2526,7 +2839,7 @@ Removing Unused input sections from the image.
     Removing Base.cpp.lpc1768.arm.o(i._ZN4mbed13BaseDirHandle9rewinddirEv), (6 bytes).
     Removing Base.cpp.lpc1768.arm.o(.ARM.exidx), (8 bytes).
 
-628 unused section(s) (total 19440 bytes) removed from the image.
+743 unused section(s) (total 24631 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2540,119 +2853,119 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x000000c4   Data   RO         2644    RESET               startup_LPC17xx.o
-    0x000000c4   0x00000008   Code   RO         2760  * !!!main             c_w.l(__main.o)
-    0x000000cc   0x00000002   Code   RO         3243    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x000000ce   0x00000000   Code   RO         2807    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x000000ce   0x00000008   Code   RO         2808    .ARM.Collect$$libinit$$00000003  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2810    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2812    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2814    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2817    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2819    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2821    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2823    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2825    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2827    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2829    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2831    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2833    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2835    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x000000d6   0x00000000   Code   RO         2837    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x000000d6   0x00000008   Code   RO         2838    .ARM.Collect$$libinit$$00000024  c_w.l(libinit2.o)
-    0x000000de   0x00000000   Code   RO         2843    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x000000de   0x00000000   Code   RO         2845    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x000000de   0x00000000   Code   RO         2847    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x000000de   0x00000002   Code   RO         2848    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x000000e0   0x00000000   Code   RO         2782    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
-    0x000000e0   0x00000000   Code   RO         2957    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
-    0x000000e0   0x00000006   Code   RO         2969    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
-    0x000000e6   0x00000000   Code   RO         2959    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
-    0x000000e6   0x00000004   Code   RO         2960    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
-    0x000000ea   0x00000000   Code   RO         2962    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
-    0x000000ea   0x00000008   Code   RO         2963    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
+    0x00000000   0x000000c4   Data   RO         2947    RESET               startup_LPC17xx.o
+    0x000000c4   0x00000008   Code   RO         3063  * !!!main             c_w.l(__main.o)
+    0x000000cc   0x00000002   Code   RO         3546    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000000ce   0x00000000   Code   RO         3110    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000000ce   0x00000008   Code   RO         3111    .ARM.Collect$$libinit$$00000003  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3113    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3115    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3117    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3120    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3122    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3124    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3126    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3128    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3130    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3132    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3134    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3136    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3138    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x000000d6   0x00000000   Code   RO         3140    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x000000d6   0x00000008   Code   RO         3141    .ARM.Collect$$libinit$$00000024  c_w.l(libinit2.o)
+    0x000000de   0x00000000   Code   RO         3146    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x000000de   0x00000000   Code   RO         3148    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x000000de   0x00000000   Code   RO         3150    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x000000de   0x00000002   Code   RO         3151    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x000000e0   0x00000000   Code   RO         3085    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
+    0x000000e0   0x00000000   Code   RO         3260    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
+    0x000000e0   0x00000006   Code   RO         3272    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
+    0x000000e6   0x00000000   Code   RO         3262    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
+    0x000000e6   0x00000004   Code   RO         3263    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
+    0x000000ea   0x00000000   Code   RO         3265    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
+    0x000000ea   0x00000008   Code   RO         3266    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
     0x000000f2   0x00000002   PAD
-    0x000000f4   0x00000004   Code   RO         3054    .emb_text           c_w.l(argv_veneer.o)
-    0x000000f8   0x00000000   Code   RO         3429    .emb_text           c_w.l(maybetermalloc1.o)
-    0x000000f8   0x00000078   Code   RO         1610    .text               my_asm.o
-    0x00000170   0x00000024   Code   RO         2646    .text               startup_LPC17xx.o
-    0x00000194   0x0000004e   Code   RO         2975    .text               c_w.l(h1_free.o)
+    0x000000f4   0x00000004   Code   RO         3357    .emb_text           c_w.l(argv_veneer.o)
+    0x000000f8   0x00000000   Code   RO         3732    .emb_text           c_w.l(maybetermalloc1.o)
+    0x000000f8   0x00000078   Code   RO         1609    .text               my_asm.o
+    0x00000170   0x00000024   Code   RO         2949    .text               startup_LPC17xx.o
+    0x00000194   0x0000004e   Code   RO         3278    .text               c_w.l(h1_free.o)
     0x000001e2   0x00000002   PAD
-    0x000001e4   0x00000008   Code   RO         3181    .text               c_w.l(rt_heap_descriptor.o)
-    0x000001ec   0x00000004   Code   RO         3186    .text               c_w.l(hguard.o)
-    0x000001f0   0x0000008a   Code   RO         3188    .text               c_w.l(init_alloc.o)
-    0x0000027a   0x0000005e   Code   RO         3194    .text               c_w.l(h1_alloc.o)
-    0x000002d8   0x0000000a   Code   RO         3220    .text               c_w.l(defsig_exit.o)
+    0x000001e4   0x00000008   Code   RO         3484    .text               c_w.l(rt_heap_descriptor.o)
+    0x000001ec   0x00000004   Code   RO         3489    .text               c_w.l(hguard.o)
+    0x000001f0   0x0000008a   Code   RO         3491    .text               c_w.l(init_alloc.o)
+    0x0000027a   0x0000005e   Code   RO         3497    .text               c_w.l(h1_alloc.o)
+    0x000002d8   0x0000000a   Code   RO         3523    .text               c_w.l(defsig_exit.o)
     0x000002e2   0x00000002   PAD
-    0x000002e4   0x0000000c   Code   RO         3422    .text               c_w.l(sys_exit.o)
-    0x000002f0   0x00000004   Code   RO         3427    .text               c_w.l(hrguard.o)
-    0x000002f4   0x00000002   Code   RO         3563    .text               c_w.l(use_no_semi.o)
-    0x000002f6   0x00000000   Code   RO         3565    .text               c_w.l(indicate_semi.o)
-    0x000002f6   0x00000002   Code   RO         1749    i._Z14rf_rx_callbackP10RF_RX_INFO  bmac.o
+    0x000002e4   0x0000000c   Code   RO         3725    .text               c_w.l(sys_exit.o)
+    0x000002f0   0x00000004   Code   RO         3730    .text               c_w.l(hrguard.o)
+    0x000002f4   0x00000002   Code   RO         3866    .text               c_w.l(use_no_semi.o)
+    0x000002f6   0x00000000   Code   RO         3868    .text               c_w.l(indicate_semi.o)
+    0x000002f6   0x00000002   Code   RO         1830    i._Z14rf_rx_callbackP10RF_RX_INFO  bmac.o
     0x000002f8   0x00000004   Code   RO          491    i._Z15nrk_int_disablev  nrk.o
-    0x000002fc   0x00000004   Code   RO         2645    .ARM.__at_0x02FC    startup_LPC17xx.o
-    0x00000300   0x0000000e   Code   RO         3431    .text               c_w.l(h1_init.o)
-    0x0000030e   0x00000034   Code   RO         3433    .text               c_w.l(h1_extend.o)
-    0x00000342   0x00000032   Code   RO         3471    .text               c_w.l(defsig_general.o)
-    0x00000374   0x0000000e   Code   RO         3475    .text               c_w.l(defsig_rtmem_outer.o)
+    0x000002fc   0x00000004   Code   RO         2948    .ARM.__at_0x02FC    startup_LPC17xx.o
+    0x00000300   0x0000000e   Code   RO         3734    .text               c_w.l(h1_init.o)
+    0x0000030e   0x00000034   Code   RO         3736    .text               c_w.l(h1_extend.o)
+    0x00000342   0x00000032   Code   RO         3774    .text               c_w.l(defsig_general.o)
+    0x00000374   0x0000000e   Code   RO         3778    .text               c_w.l(defsig_rtmem_outer.o)
     0x00000382   0x00000002   PAD
-    0x00000384   0x00000050   Code   RO         3491    .text               c_w.l(heapauxa.o)
-    0x000003d4   0x00000108   Code   RO         3496    .text               c_w.l(_get_argv.o)
-    0x000004dc   0x0000000e   Code   RO         3561    .text               c_w.l(sys_wrch.o)
+    0x00000384   0x00000050   Code   RO         3794    .text               c_w.l(heapauxa.o)
+    0x000003d4   0x00000108   Code   RO         3799    .text               c_w.l(_get_argv.o)
+    0x000004dc   0x0000000e   Code   RO         3864    .text               c_w.l(sys_wrch.o)
     0x000004ea   0x00000002   PAD
-    0x000004ec   0x00000050   Code   RO         3635    .text               c_w.l(defsig_rtmem_inner.o)
-    0x0000053c   0x0000003c   Code   RO         2218    i.EINT3_IRQHandler  basic_rf.o
-    0x00000578   0x00000078   Code   RO         2649    i.SystemInit        system_LPC17xx.o
+    0x000004ec   0x00000050   Code   RO         3938    .text               c_w.l(defsig_rtmem_inner.o)
+    0x0000053c   0x0000003c   Code   RO         2521    i.EINT3_IRQHandler  basic_rf.o
+    0x00000578   0x00000078   Code   RO         2952    i.SystemInit        system_LPC17xx.o
     0x000005f0   0x0000001c   Code   RO          289    i.TIMER0_IRQHandler  nrk_timer.o
     0x0000060c   0x00000018   Code   RO          290    i.TIMER1_IRQHandler  nrk_timer.o
-    0x00000624   0x0000001c   Code   RO         2491    i._Z10mrf_cs_seth   mrf24j40.o
-    0x00000640   0x0000004c   Code   RO         2496    i._Z13mrf_read_longt  mrf24j40.o
-    0x0000068c   0x0000001c   Code   RO         2499    i._Z13mrf_spi_writet  mrf24j40.o
-    0x000006a8   0x00000294   Code   RO          887    i._Z14_nrk_schedulerv  nrk_scheduler.o
-    0x0000093c   0x0000003e   Code   RO         2501    i._Z14mrf_read_shorth  mrf24j40.o
-    0x0000097a   0x00000040   Code   RO         2503    i._Z15mrf_write_shorthh  mrf24j40.o
+    0x00000624   0x0000001c   Code   RO         2798    i._Z10mrf_cs_seth   mrf24j40.o
+    0x00000640   0x0000004c   Code   RO         2803    i._Z13mrf_read_longt  mrf24j40.o
+    0x0000068c   0x0000001c   Code   RO         2806    i._Z13mrf_spi_writet  mrf24j40.o
+    0x000006a8   0x00000294   Code   RO         1065    i._Z14_nrk_schedulerv  nrk_scheduler.o
+    0x0000093c   0x0000003e   Code   RO         2808    i._Z14mrf_read_shorth  mrf24j40.o
+    0x0000097a   0x00000040   Code   RO         2810    i._Z15mrf_write_shorthh  mrf24j40.o
     0x000009ba   0x00000004   Code   RO          293    i._Z16nrk_spin_wait_usj  nrk_timer.o
     0x000009be   0x0000000a   Code   RO          294    i._Z17_nrk_os_timer_getv  nrk_timer.o
-    0x000009c8   0x000000b8   Code   RO         1118    i._Z17nrk_add_to_readyQa  nrk_task.o
-    0x00000a80   0x000000b0   Code   RO         2239    i._Z18rf_parse_rx_packetv  basic_rf.o
-    0x00000b30   0x00000054   Code   RO         1121    i._Z19nrk_rem_from_readyQa  nrk_task.o
+    0x000009c8   0x000000b8   Code   RO         1128    i._Z17nrk_add_to_readyQa  nrk_task.o
+    0x00000a80   0x000000b0   Code   RO         2543    i._Z18rf_parse_rx_packetv  basic_rf.o
+    0x00000b30   0x00000054   Code   RO         1131    i._Z19nrk_rem_from_readyQa  nrk_task.o
     0x00000b84   0x0000000a   Code   RO          304    i._Z20_nrk_set_next_wakeuph  nrk_timer.o
     0x00000b8e   0x00000002   PAD
-    0x00000b90   0x0000000c   Code   RO          675    i._Z20nrk_kernel_error_addhh  nrk_error.o
+    0x00000b90   0x0000000c   Code   RO          773    i._Z20nrk_kernel_error_addhh  nrk_error.o
     0x00000b9c   0x00000014   Code   RO          306    i._Z25_nrk_high_speed_timer_getv  nrk_timer.o
     0x00000bb0   0x00000032   Code   RO          307    i._Z25nrk_high_speed_timer_waittt  nrk_timer.o
     0x00000be2   0x00000002   PAD
     0x00000be4   0x00000070   Code   RO            6    i._Z25nrk_stack_pointer_restorev  nrk_cpu.o
-    0x00000c54   0x0000000c   Code   RO         1124    i._Z26nrk_get_high_ready_task_IDv  nrk_task.o
+    0x00000c54   0x0000000c   Code   RO         1134    i._Z26nrk_get_high_ready_task_IDv  nrk_task.o
     0x00000c60   0x00000018   Code   RO          309    i._Z27_nrk_high_speed_timer_resetv  nrk_timer.o
-    0x00000c78   0x0000001c   Code   RO         2252    i._Z8rf_rx_onv      basic_rf.o
-    0x00000c94   0x0000001c   Code   RO         2253    i._Z9rf_rx_offv     basic_rf.o
-    0x00000cb0   0x0000000c   Code   RO         2653    i.__user_setup_stackheap  stackheap.o
+    0x00000c78   0x0000001c   Code   RO         2556    i._Z8rf_rx_onv      basic_rf.o
+    0x00000c94   0x0000001c   Code   RO         2557    i._Z9rf_rx_offv     basic_rf.o
+    0x00000cb0   0x0000000c   Code   RO         2956    i.__user_setup_stackheap  stackheap.o
     0x00000cbc   0x00000004   Code   RO          495    i._nrk_timer_tick   nrk.o
-    0x00000cc0   0x00000016   Code   RO         3096    i.exit              capi.ar(exit.c.lpc1768.arm.o)
-    0x00000cd6   0x00000030   Code   RO         3553    i.gpio_output       capi.ar(gpio_api.c.lpc1768.arm.o)
-    0x00000d06   0x00000018   Code   RO         3555    i.gpio_write        capi.ar(gpio_api.c.lpc1768.arm.o)
+    0x00000cc0   0x00000016   Code   RO         3399    i.exit              capi.ar(exit.c.lpc1768.arm.o)
+    0x00000cd6   0x00000030   Code   RO         3856    i.gpio_output       capi.ar(gpio_api.c.lpc1768.arm.o)
+    0x00000d06   0x00000018   Code   RO         3858    i.gpio_write        capi.ar(gpio_api.c.lpc1768.arm.o)
     0x00000d1e   0x00000002   PAD
-    0x00000d20   0x00000078   Code   RO         3378    i.mbed_die          capi.ar(utils_api.c.lpc1768.arm.o)
-    0x00000d98   0x00000038   Code   RO         3412    i.pin_function      capi.ar(pinmap.c.lpc1768.arm.o)
-    0x00000dd0   0x00000038   Code   RO         3413    i.pin_mode          capi.ar(pinmap.c.lpc1768.arm.o)
-    0x00000e08   0x0000000c   Code   RO         3388    i.semihost_exit     capi.ar(semihost_api.c.lpc1768.arm.o)
-    0x00000e14   0x00000014   Code   RO         2672    i.timer_frequency   capi.ar(timer_api.c.lpc1768.arm.o)
-    0x00000e28   0x00000070   Code   RO         2673    i.timer_init        capi.ar(timer_api.c.lpc1768.arm.o)
-    0x00000e98   0x00000004   Code   RO         2674    i.timer_read        capi.ar(timer_api.c.lpc1768.arm.o)
-    0x00000e9c   0x0000000c   Code   RO         2675    i.timer_start       capi.ar(timer_api.c.lpc1768.arm.o)
-    0x00000ea8   0x00000038   Code   RO         2668    i.us_ticker_read    capi.ar(us_ticker_api.c.lpc1768.arm.o)
-    0x00000ee0   0x0000001c   Code   RO         2663    i.wait_ms           capi.ar(wait_api.c.lpc1768.arm.o)
-    0x00000efc   0x00000016   Code   RO         2664    i.wait_us           capi.ar(wait_api.c.lpc1768.arm.o)
+    0x00000d20   0x00000078   Code   RO         3681    i.mbed_die          capi.ar(utils_api.c.lpc1768.arm.o)
+    0x00000d98   0x00000038   Code   RO         3715    i.pin_function      capi.ar(pinmap.c.lpc1768.arm.o)
+    0x00000dd0   0x00000038   Code   RO         3716    i.pin_mode          capi.ar(pinmap.c.lpc1768.arm.o)
+    0x00000e08   0x0000000c   Code   RO         3691    i.semihost_exit     capi.ar(semihost_api.c.lpc1768.arm.o)
+    0x00000e14   0x00000014   Code   RO         2975    i.timer_frequency   capi.ar(timer_api.c.lpc1768.arm.o)
+    0x00000e28   0x00000070   Code   RO         2976    i.timer_init        capi.ar(timer_api.c.lpc1768.arm.o)
+    0x00000e98   0x00000004   Code   RO         2977    i.timer_read        capi.ar(timer_api.c.lpc1768.arm.o)
+    0x00000e9c   0x0000000c   Code   RO         2978    i.timer_start       capi.ar(timer_api.c.lpc1768.arm.o)
+    0x00000ea8   0x00000038   Code   RO         2971    i.us_ticker_read    capi.ar(us_ticker_api.c.lpc1768.arm.o)
+    0x00000ee0   0x0000001c   Code   RO         2966    i.wait_ms           capi.ar(wait_api.c.lpc1768.arm.o)
+    0x00000efc   0x00000016   Code   RO         2967    i.wait_us           capi.ar(wait_api.c.lpc1768.arm.o)
     0x00000f12   0x00000002   PAD
-    0x00000f14   0x00000000   Data   RO         3849    Region$$Table       anon$$obj.o
+    0x00000f14   0x00000000   Data   RO         4152    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x000003e8, Max: 0x00008000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x000000c4   Data   RW         2659    .ARM.__AT_0x10000000  cmsis_nvic.o
+    0x10000000   0x000000c4   Data   RW         2962    .ARM.__AT_0x10000000  cmsis_nvic.o
     0x100000c4   0x00000002   Data   RW          333    .data               nrk_timer.o
     0x100000c6   0x00000002   PAD
     0x100000c8   0x00000004   Data   RW          506    .data               nrk.o
@@ -2660,18 +2973,18 @@ Memory Map of the image
     0x100000cd   0x00000003   PAD
     0x100000d0   0x00000014   Data   RW          508    .data               nrk.o
     0x100000e4   0x00000008   Data   RW          511    .data               nrk.o
-    0x100000ec   0x00000002   Data   RW          689    .data               nrk_error.o
+    0x100000ec   0x00000002   Data   RW          787    .data               nrk_error.o
     0x100000ee   0x00000002   PAD
-    0x100000f0   0x00000008   Data   RW          889    .data               nrk_scheduler.o
-    0x100000f8   0x00000006   Data   RW         2293    .data               basic_rf.o
+    0x100000f0   0x00000008   Data   RW         1067    .data               nrk_scheduler.o
+    0x100000f8   0x00000006   Data   RW         2598    .data               basic_rf.o
     0x100000fe   0x00000002   PAD
-    0x10000100   0x00000004   Data   RW         2650    .data               system_LPC17xx.o
-    0x10000104   0x00000004   Data   RW         2669    .data               capi.ar(us_ticker_api.c.lpc1768.arm.o)
-    0x10000108   0x00000004   Data   RW         3492    .data               c_w.l(heapauxa.o)
+    0x10000100   0x00000004   Data   RW         2953    .data               system_LPC17xx.o
+    0x10000104   0x00000004   Data   RW         2972    .data               capi.ar(us_ticker_api.c.lpc1768.arm.o)
+    0x10000108   0x00000004   Data   RW         3795    .data               c_w.l(heapauxa.o)
     0x1000010c   0x00000080   Zero   RW          504    .bss                nrk.o
     0x1000018c   0x0000024c   Zero   RW          505    .bss                nrk.o
-    0x100003d8   0x0000000c   Zero   RW         2292    .bss                basic_rf.o
-    0x100003e4   0x00000004   Zero   RW         3182    .bss                c_w.l(rt_heap_descriptor.o)
+    0x100003d8   0x0000000c   Zero   RW         2597    .bss                basic_rf.o
+    0x100003e4   0x00000004   Zero   RW         3485    .bss                c_w.l(rt_heap_descriptor.o)
 
 
     Execution Region RW_IRAM2 (Base: 0x2007c000, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)

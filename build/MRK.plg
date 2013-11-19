@@ -3,103 +3,293 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-S:\ESE519\ese519_git\ese519\lab4\basic_bmac-slave\slave_1\MRK_slave1.uvproj
-Project File Date:  11/13/2013
+S:\ese519\SenseX\MRK.uvproj
+Project File Date:  11/18/2013
 
 <h2>Output:</h2>
 Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(316): warning:  #550-D: variable "val" was set but never used
-linking...
-Program Size: Code=32256 RO-data=1576 RW-data=364 ZI-data=3624  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+compiling nrk.cpp...
+compiling nrk_error.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_error.cpp(165): warning:  #177-D: variable "i" was declared but never referenced
+compiling nrk_events.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_events.cpp(279): warning:  #177-D: variable "task_ID" was declared but never referenced
+compiling nrk_idle_task.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_idle_task.cpp(39): warning:  #177-D: variable "stkc" was declared but never referenced
+compiling nrk_reserve.cpp...
+compiling nrk_scheduler.cpp...
+compiling nrk_stack_check.cpp...
+compiling nrk_stats.cpp...
+compiling nrk_task.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_task.cpp(230): warning:  #550-D: variable "rtype" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_task.cpp(524): warning:  #191-D: type qualifier is meaningless on cast type
+compiling nrk_time.cpp...
+compiling hal_wait.cpp...
+compiling ulib.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(338): warning:  #9-D: nested comment is not allowed
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(606): warning:  #111-D: statement is unreachable
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(657): warning:  #940-D: missing return statement at end of non-void function "nrk_get_button"
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(826): warning: C4017W: uClk may be used before being set
+assembling my_asm.s...
+mrk_uvision_lpc1768\mrk\my_asm.s(93): warning: A1581W: Added 2 bytes of padding at address 0x6a
+compiling nrk_driver.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_driver.cpp(141): warning:  #186-D: pointless comparison of unsigned integer with zero
+compiling bmac.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(461): warning:  #550-D: variable "result" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(502): warning:  #177-D: variable "result" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(554): warning:  #550-D: variable "e" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(555): warning:  #177-D: variable "backoff" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(803): warning:  #1-D: last line of file ends without a newline
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(66): warning:  #550-D: variable "g_chan" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(72): warning:  #550-D: variable "tx_reserve" was set but never used
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(113): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(225): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(226): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(436): error:  #260-D: explicit type is missing ("int" assumed)
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(436): warning:  #191-D: type qualifier is meaningless on cast type
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(429): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(497): error:  #20: identifier "_rtl_clr_abs_wakeup" is undefined
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(325): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(330): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(331): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(608): error:  #167: argument of type "volatile RF_TX_INFO *" is incompatible with parameter of type "RF_TX_INFO *"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(627): error:  #513: a value of type "void *" cannot be assigned to an entity of type "void (*)(std::uint16_t)"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(632): error:  #513: a value of type "void *" cannot be assigned to an entity of type "void (*)(std::uint16_t)"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(637): error:  #513: a value of type "void *" cannot be assigned to an entity of type "void (*)(std::uint8_t)"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(642): error:  #513: a value of type "void *" cannot be assigned to an entity of type "void (*)(std::uint8_t)"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(647): error:  #513: a value of type "void *" cannot be assigned to an entity of type "void (*)(std::uint16_t)"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(693): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(693): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(821): error:  #260-D: explicit type is missing ("int" assumed)
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(821): warning:  #191-D: type qualifier is meaningless on cast type
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(933): error:  #304: no instance of overloaded function "rtl_tx_pkt" matches the argument list
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(938): error:  #304: no instance of overloaded function "rtl_tx_pkt" matches the argument list
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(808): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(809): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(811): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(811): warning:  #550-D: variable "skip_rxtx" was set but never used
+compiling basic_rf.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(332): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(332): warning:  #68-D: integer conversion resulted in a change of sign
+compiling MRF24J40.cpp...
+".\build\MRK.axf" - 11 Errors, 40 Warning(s).
+Target not created
 Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(316): warning:  #550-D: variable "val" was set but never used
-linking...
-Program Size: Code=32476 RO-data=1576 RW-data=364 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(113): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(225): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(226): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(436): error:  #260-D: explicit type is missing ("int" assumed)
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(436): warning:  #191-D: type qualifier is meaningless on cast type
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(429): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(497): error:  #20: identifier "_rtl_clr_abs_wakeup" is undefined
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(325): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(330): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(331): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(608): error:  #167: argument of type "volatile RF_TX_INFO *" is incompatible with parameter of type "RF_TX_INFO *"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(693): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(693): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(821): error:  #260-D: explicit type is missing ("int" assumed)
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(821): warning:  #191-D: type qualifier is meaningless on cast type
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(807): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(808): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(809): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(811): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(811): warning:  #550-D: variable "skip_rxtx" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1115): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1359): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1359): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1368): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1368): warning:  #177-D: variable "tmp" was declared but never referenced
+".\build\MRK.axf" - 4 Errors, 25 Warning(s).
+Target not created
 Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(316): warning:  #550-D: variable "val" was set but never used
-linking...
-Program Size: Code=32476 RO-data=1576 RW-data=364 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(171): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(534): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(646): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(647): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(857): error:  #260-D: explicit type is missing ("int" assumed)
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(857): warning:  #191-D: type qualifier is meaningless on cast type
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(850): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(746): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(751): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(752): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1029): error:  #167: argument of type "volatile RF_TX_INFO *" is incompatible with parameter of type "RF_TX_INFO *"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1229): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1230): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "skip_rxtx" was set but never used
+".\build\MRK.axf" - 2 Errors, 24 Warning(s).
+Target not created
 Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(315): warning:  #550-D: variable "val" was set but never used
-linking...
-Program Size: Code=32420 RO-data=1576 RW-data=364 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(171): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(534): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(646): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(647): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(850): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(746): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(751): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(752): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1029): error:  #167: argument of type "volatile RF_TX_INFO *" is incompatible with parameter of type "RF_TX_INFO *"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1229): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1230): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "skip_rxtx" was set but never used
+".\build\MRK.axf" - 1 Errors, 23 Warning(s).
+Target not created
 Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(315): warning:  #550-D: variable "val" was set but never used
-linking...
-Program Size: Code=32348 RO-data=1576 RW-data=364 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(171): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(534): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(646): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(647): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(850): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(746): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(751): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(752): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1029): error:  #167: argument of type "volatile RF_TX_INFO *" is incompatible with parameter of type "RF_TX_INFO *"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1229): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1230): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "skip_rxtx" was set but never used
+compiling basic_rf.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(326): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(326): warning:  #68-D: integer conversion resulted in a change of sign
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(392): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(392): warning:  #68-D: integer conversion resulted in a change of sign
+".\build\MRK.axf" - 1 Errors, 27 Warning(s).
+Target not created
 Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(315): warning:  #550-D: variable "val" was set but never used
+compiling bmac.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(461): warning:  #550-D: variable "result" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(502): warning:  #177-D: variable "result" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(554): warning:  #550-D: variable "e" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(555): warning:  #177-D: variable "backoff" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(803): warning:  #1-D: last line of file ends without a newline
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(66): warning:  #550-D: variable "g_chan" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(72): warning:  #550-D: variable "tx_reserve" was set but never used
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(171): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(534): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(646): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(647): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(850): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(746): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(751): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(752): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1114): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1228): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1229): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1230): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1232): warning:  #550-D: variable "skip_rxtx" was set but never used
+compiling basic_rf.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(326): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(326): warning:  #68-D: integer conversion resulted in a change of sign
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(392): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(392): warning:  #68-D: integer conversion resulted in a change of sign
 linking...
-Program Size: Code=32340 RO-data=1576 RW-data=360 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+.\build\MRK.axf: Error: L6218E: Undefined symbol rf_rx_check_sfd() (referred from rt_link.o).
+.\build\MRK.axf: Error: L6218E: Undefined symbol _rtl_rx(unsigned char) (referred from rt_link.o).
+.\build\MRK.axf: Error: L6218E: Undefined symbol main (referred from rtentry2.o).
+".\build\MRK.axf" - 3 Errors, 34 Warning(s).
+Target not created
+Build target 'mbed NXP LPC1768'
+compiling rt_link.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(171): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(415): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(424): warning:  #177-D: variable "tmp" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(534): warning:  #550-D: variable "v" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(646): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(647): warning:  #175-D: subscript out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(850): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(746): warning:  #177-D: variable "start_lat" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(751): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(752): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1057): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1239): warning:  #177-D: variable "a" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1239): warning:  #177-D: variable "b" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1353): warning:  #177-D: variable "i" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1353): warning:  #177-D: variable "k" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1353): warning:  #177-D: variable "val" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1353): warning:  #177-D: variable "j" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1353): warning:  #177-D: variable "frames" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1354): warning:  #177-D: variable "n" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1355): warning:  #177-D: variable "timeout" was declared but never referenced
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1357): warning:  #550-D: variable "blink" was set but never used
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\rt_link\rt_link.cpp(1357): warning:  #550-D: variable "skip_rxtx" was set but never used
+linking...
+.\build\MRK.axf: Error: L6218E: Undefined symbol rf_rx_check_sfd() (referred from rt_link.o).
+.\build\MRK.axf: Error: L6218E: Undefined symbol main (referred from rtentry2.o).
+".\build\MRK.axf" - 2 Errors, 24 Warning(s).
+Target not created
+Build target 'mbed NXP LPC1768'
+compiling basic_rf.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(331): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(331): warning:  #68-D: integer conversion resulted in a change of sign
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(397): warning:  #61-D: integer operation result is out of range
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(397): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+.\build\MRK.axf: Error: L6218E: Undefined symbol main (referred from rtentry2.o).
+".\build\MRK.axf" - 1 Errors, 4 Warning(s).
+Target not created
 Build target 'mbed NXP LPC1768'
 linking...
-Program Size: Code=32340 RO-data=1576 RW-data=360 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 0 Warning(s).
-Build target 'mbed NXP LPC1768'
-compiling main.cpp...
-main.cpp(137): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(137): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(138): warning:  #550-D: variable "val" was set but never used
-main.cpp(139): warning:  #550-D: variable "local_rx_buf" was set but never used
-main.cpp(232): warning:  #177-D: variable "i" was declared but never referenced
-main.cpp(232): warning:  #177-D: variable "j" was declared but never referenced
-main.cpp(315): warning:  #550-D: variable "val" was set but never used
-linking...
-Program Size: Code=32340 RO-data=1576 RW-data=360 ZI-data=4136  
-After Build - User command #1: fromelf --bin -o E:\MRK.bin .\build\MRK.axf
-".\build\MRK.axf" - 0 Errors, 7 Warning(s).
+.\build\MRK.axf: Error: L6218E: Undefined symbol main (referred from rtentry2.o).
+".\build\MRK.axf" - 1 Errors, 0 Warning(s).
+Target not created

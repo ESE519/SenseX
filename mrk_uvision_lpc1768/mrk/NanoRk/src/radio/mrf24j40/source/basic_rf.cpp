@@ -267,6 +267,11 @@ uint8_t rf_rx_check_fifop()
     // This function is deprecated and should not be used
     return rx_data_ready;
 }
+//Added this for linking purpose but is faulty need to check!!!!!
+uint8_t rf_rx_check_sfd()
+{
+	return 0;
+}
 
 uint8_t rssi_cca_thold;
 
@@ -318,7 +323,67 @@ int8_t rf_polling_rx_packet(void)
 uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t tx_guard_time)
 {
     // TODO (later): Paul Gurniak
-    return 0;
+		uint16_t frameControlField;
+	  uint8_t packetLength;
+	  uint8_t success, i;
+		//Note: checksum is automatic in HW
+	  
+	  LPC_GPIO1->FIOPIN ^= 1<<31;
+    
+    packetLength = pRTI->length + RF_PACKET_OVERHEAD_SIZE;
+    
+    frameControlField = RF_FCF_NOACK;
+    if(auto_ack_enable || pRTI->ackRequest) frameControlField |= RF_ACK_BM;
+    if(security_enable) frameControlField |= 0x0000; // TODO: Paul Gurniak, add security
+    
+    mrf_write_long(TXNFIFO, RF_PACKET_OVERHEAD_SIZE);    // No checksum, overhead is all header
+    mrf_write_long(TXNFIFO+1, packetLength);
+    
+    // Write header bytes
+    mrf_write_long(TXNFIFO+2, frameControlField & 0xFF);
+    mrf_write_long(TXNFIFO+3, frameControlField >> 8);
+    mrf_write_long(TXNFIFO+4, rfSettings.txSeqNumber);
+    mrf_write_long(TXNFIFO+5, rfSettings.panId & 0xFF);
+    mrf_write_long(TXNFIFO+6, rfSettings.panId >> 8);
+    mrf_write_long(TXNFIFO+7, pRTI->destAddr & 0xFF);
+    mrf_write_long(TXNFIFO+8, pRTI->destAddr >> 8);
+    mrf_write_long(TXNFIFO+9, rfSettings.myAddr & 0xFF);
+    mrf_write_long(TXNFIFO+10, rfSettings.myAddr >> 8);
+		
+		nrk_high_speed_timer_wait(slot_start_time,tx_guard_time);
+		
+		for(i = 0; i < pRTI->length; i++) {
+        mrf_write_long(TXNFIFO+11+i, pRTI->pPayload[i]); // pPayload is the user defined part of data packet right ?
+    }
+    if(pRTI->cca) {
+        uint8_t cnt = 0;
+        if(!rfSettings.receiveOn) {
+            rf_rx_on();
+        }
+				while(!rf_rx_check_cca()) {
+					cnt++;
+					if(cnt > 100) {
+						return FALSE;
+					}
+					halWait(100);
+				}
+    }
+    
+    tx_status_ready = 0;
+    mrf_write_short(TXNCON, auto_ack_enable ? 0x05 : 0x01);  // Send contents of TXNFIFO as packet
+    
+    // Wait for Tx to finish
+    while(!tx_status_ready);
+    
+    success = 1;
+    if(auto_ack_enable || pRTI->ackRequest) {
+        success = !(mrf_read_short(TXSTAT) & 0x01);
+    }
+    
+		//printf("tx_pkt success = %d\r\n",success);
+    // Increment sequence, return result
+    rfSettings.txSeqNumber++;
+    return success;
 }
 
 

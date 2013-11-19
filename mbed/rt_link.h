@@ -90,6 +90,31 @@ rtl_node_mode_t rtl_node_mode;
 // some handy book keeping values
 uint16_t last_slot;
 nrk_time_t last_slot_time;
+ /************************************rt_scheduler.h**************************************
+ **************************************Declarations**************************************/
+uint8_t rtl_sched[16];            // only one since you can TX and RX on the same slot
+uint8_t rtl_sched_cache[32];
+uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
+
+/*****************************************************************************************
+ *****************************************************************************************/
+
+
+ /**************************************rt_debug.h***************************************
+ **************************************Declarations**************************************/
+#define MAX_PKT_LOG  64 
+#define MAX_TSYNC_LOG 8
+
+uint16_t prev_offset;
+uint16_t rtl_drift_rate;
+
+uint8_t _tsync_index;
+uint8_t _dbg_index;
+uint8_t pkt_log[MAX_PKT_LOG/8];
+uint8_t tsync_log[MAX_TSYNC_LOG];
+uint8_t tsync_delay[MAX_TSYNC_LOG];
+/*****************************************************************************************
+ *****************************************************************************************/
 
 
 void rtl_task_config ();
@@ -152,8 +177,8 @@ volatile uint8_t rtl_rx_slot;
 volatile uint8_t rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];  
 
 // Extra slot at end for abs slot buffer pointer  
-volatile RF_TX_INFO rtl_rfTxInfo;
-
+//volatile RF_TX_INFO rtl_rfTxInfo; Chinmay:commented this out added the next line
+RF_TX_INFO rtl_rfTxInfo;
 /* changed by Tharun, replaced uint8_t with char */
 typedef struct {
 	int8_t length;
@@ -232,9 +257,24 @@ int8_t rtl_set_schedule (rtl_rx_tx_t rx_tx, uint8_t slot, uint8_t schedule);
 int8_t rtl_clr_schedule (rtl_rx_tx_t rx_tx, uint8_t slot);
 int8_t rtl_get_schedule (uint8_t slot);
 uint16_t rtl_get_slots_until_next_wakeup (uint16_t current_slot);
+void _rtl_clr_abs_all_wakeup ();
+uint16_t _rtl_get_next_abs_wakeup (uint16_t global_slot);
+uint8_t _rtl_match_abs_wakeup (uint16_t global_slot);
+uint8_t _rtl_pow (uint8_t x, uint8_t y);
+void _rtl_clear_sched_cache ();
 
+/*********************** rtl_debug.h ***********************************/
 
+void rtl_debug_init();
+int16_t rtl_debug_time_get_drift();
+void rtl_debug_time_update(uint16_t offset);
+uint8_t rtl_debug_get_pkt_loss();
+uint8_t rtl_debug_get_tsync_loss();
+uint8_t rtl_debug_get_tsync_delay(uint8_t index);
+void rtl_debug_rx_pkt(); 
+void rtl_debug_dropped_pkt(); 
 
-
+void rtl_debug_rx_tsync(); 
+void rtl_debug_dropped_tsync(uint8_t delay); 
 
 #endif
