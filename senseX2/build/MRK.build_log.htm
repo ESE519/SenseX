@@ -1,0 +1,222 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Tharun\Documents\GitHub\SenseX\senseX2\MRK.uvproj
+Project File Date:  11/02/2012
+
+<h2>Output:</h2>
+Rebuild target 'mbed NXP LPC1768'
+compiling nrk_cpu.cpp...
+compiling nrk_status.cpp...
+compiling nrk_timer.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_timer.cpp(177): warning:  #191-D: type qualifier is meaningless on cast type
+                tmp = (volatile uint16_t) LPC_TIM1->TC;
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_timer.cpp(298): warning:  #191-D: type qualifier is meaningless on cast type
+      return (volatile uint16_t) LPC_TIM0->TC;
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_timer.cpp: 2 warnings, 0 errors
+compiling nrk_watchdog.cpp...
+compiling nrk.cpp...
+compiling nrk_error.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_error.cpp(165): warning:  #177-D: variable "i" was declared but never referenced
+      int8_t t=0,i=0;
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_error.cpp: 1 warning, 0 errors
+compiling nrk_events.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_events.cpp(279): warning:  #177-D: variable "task_ID" was declared but never referenced
+      int8_t task_ID;
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_events.cpp: 1 warning, 0 errors
+compiling nrk_idle_task.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_idle_task.cpp(39): warning:  #177-D: variable "stkc" was declared but never referenced
+  volatile unsigned char *stkc;
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_idle_task.cpp: 1 warning, 0 errors
+compiling nrk_reserve.cpp...
+compiling nrk_scheduler.cpp...
+compiling nrk_stack_check.cpp...
+compiling nrk_stats.cpp...
+compiling nrk_task.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_task.cpp(230): warning:  #550-D: variable "rtype" was set but never used
+      uint8_t rtype;
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_task.cpp(524): warning:  #191-D: type qualifier is meaningless on cast type
+      while ((volatile uint8_t) nrk_cur_task_TCB->suspend_flag == 1); // pdiener: make shure that was the right interrupt
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_task.cpp: 2 warnings, 0 errors
+compiling nrk_time.cpp...
+compiling hal_wait.cpp...
+compiling ulib.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(338): warning:  #9-D: nested comment is not allowed
+   //**
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(606): warning:  #111-D: statement is unreachable
+      return 1;
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(657): warning:  #940-D: missing return statement at end of non-void function "nrk_get_button"
+  }
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp(826): warning: C4017W: uClk may be used before being set
+    uint32_t uClk;
+mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp: 4 warnings, 0 errors
+assembling my_asm.s...
+mrk_uvision_lpc1768\mrk\my_asm.s(93): warning: A1581W: Added 2 bytes of padding at address 0x6a
+compiling adc_driver.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp(69): warning:  #68-D: integer conversion resulted in a change of sign
+                  return NRK_ERROR; 
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp(73): warning:  #68-D: integer conversion resulted in a change of sign
+                  return NRK_ERROR; 
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp(76): warning:  #68-D: integer conversion resulted in a change of sign
+                  return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp(96): warning:  #68-D: integer conversion resulted in a change of sign
+              return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp(105): warning:  #68-D: integer conversion resulted in a change of sign
+              return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp: 5 warnings, 0 errors
+compiling ff_basic_sensor.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(68): warning:  #68-D: integer conversion resulted in a change of sign
+              if(is_open==1) return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(82): warning:  #68-D: integer conversion resulted in a change of sign
+                  return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(86): warning:  #68-D: integer conversion resulted in a change of sign
+                  return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(89): warning:  #68-D: integer conversion resulted in a change of sign
+                  return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(170): warning:  #68-D: integer conversion resulted in a change of sign
+              return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(193): warning:  #68-D: integer conversion resulted in a change of sign
+                          return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(209): warning:  #68-D: integer conversion resulted in a change of sign
+              return NRK_ERROR;
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp(265): warning:  #1-D: last line of file ends without a newline
+  */
+mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp: 8 warnings, 0 errors
+compiling nrk_driver.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_driver.cpp(141): warning:  #186-D: pointless comparison of unsigned integer with zero
+      if(dev_fd<0 || dev_fd>_nrk_driver_count)
+mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_driver.cpp: 1 warning, 0 errors
+compiling bmac.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(461): warning:  #550-D: variable "result" was set but never used
+        int8_t result;
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(502): warning:  #177-D: variable "result" was declared but never referenced
+        uint8_t v,result, backoff, backoff_count;
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(554): warning:  #550-D: variable "e" was set but never used
+        int8_t e;
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(555): warning:  #177-D: variable "backoff" was declared but never referenced
+        uint8_t backoff;
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(803): warning:  #1-D: last line of file ends without a newline
+  */
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(66): warning:  #550-D: variable "g_chan" was set but never used
+  static uint8_t g_chan;
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp(72): warning:  #550-D: variable "tx_reserve" was set but never used
+  static int8_t tx_reserve;
+mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp: 7 warnings, 0 errors
+compiling basic_rf.cpp...
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(331): warning:  #61-D: integer operation result is out of range
+          LPC_GPIO1->FIOPIN ^= 1<<31;
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(331): warning:  #68-D: integer conversion resulted in a change of sign
+          LPC_GPIO1->FIOPIN ^= 1<<31;
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(397): warning:  #61-D: integer operation result is out of range
+                LPC_GPIO1->FIOPIN ^= 1<<31;
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp(397): warning:  #68-D: integer conversion resulted in a change of sign
+                LPC_GPIO1->FIOPIN ^= 1<<31;
+mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp: 4 warnings, 0 errors
+compiling MRF24J40.cpp...
+compiling rt_link.cpp...
+rt_link.cpp(171): warning:  #940-D: missing return statement at end of non-void function "rtl_clr_schedule"
+  }
+rt_link.cpp(415): warning:  #177-D: variable "j" was declared but never referenced
+  uint8_t i,j,cnt,tmp;
+rt_link.cpp(415): warning:  #177-D: variable "tmp" was declared but never referenced
+  uint8_t i,j,cnt,tmp;
+rt_link.cpp(424): warning:  #177-D: variable "j" was declared but never referenced
+  uint8_t i,j,cnt,tmp;
+rt_link.cpp(424): warning:  #177-D: variable "tmp" was declared but never referenced
+  uint8_t i,j,cnt,tmp;
+rt_link.cpp(534): warning:  #550-D: variable "v" was set but never used
+      uint8_t v;
+rt_link.cpp(646): warning:  #175-D: subscript out of range
+      rtl_tx_info[TDMA_FRAME_SLOTS+1].pPayload= buf; 
+rt_link.cpp(647): warning:  #175-D: subscript out of range
+      rtl_tx_info[TDMA_FRAME_SLOTS+1].length= len; 
+rt_link.cpp(850): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+          uint8_t explicit_sync_pkt;
+rt_link.cpp(746): warning:  #177-D: variable "start_lat" was declared but never referenced
+      uint16_t timeout,start_lat;
+rt_link.cpp(751): warning:  #177-D: variable "elapsed_time" was declared but never referenced
+      uint16_t elapsed_time;
+rt_link.cpp(752): warning:  #177-D: variable "tmp_offset" was declared but never referenced
+      int16_t tmp_offset;
+rt_link.cpp(1057): warning:  #177-D: variable "explicit_sync_pkt" was declared but never referenced
+        uint8_t explicit_sync_pkt;
+rt_link.cpp(1239): warning:  #177-D: variable "a" was declared but never referenced
+                uint16_t a,b;
+rt_link.cpp(1239): warning:  #177-D: variable "b" was declared but never referenced
+                uint16_t a,b;
+rt_link.cpp(1353): warning:  #177-D: variable "i" was declared but never referenced
+                uint8_t i, k, val, j, frames;
+rt_link.cpp(1353): warning:  #177-D: variable "k" was declared but never referenced
+                uint8_t i, k, val, j, frames;
+rt_link.cpp(1353): warning:  #177-D: variable "val" was declared but never referenced
+                uint8_t i, k, val, j, frames;
+rt_link.cpp(1353): warning:  #177-D: variable "j" was declared but never referenced
+                uint8_t i, k, val, j, frames;
+rt_link.cpp(1353): warning:  #177-D: variable "frames" was declared but never referenced
+                uint8_t i, k, val, j, frames;
+rt_link.cpp(1354): warning:  #177-D: variable "n" was declared but never referenced
+                int8_t n;
+rt_link.cpp(1355): warning:  #177-D: variable "timeout" was declared but never referenced
+                uint8_t timeout;
+rt_link.cpp(1357): warning:  #550-D: variable "blink" was set but never used
+                uint8_t blink,skip_rxtx;
+rt_link.cpp(1357): warning:  #550-D: variable "skip_rxtx" was set but never used
+                uint8_t blink,skip_rxtx;
+rt_link.cpp: 24 warnings, 0 errors
+compiling main.cpp...
+main.cpp(88): warning:  #177-D: variable "j" was declared but never referenced
+    uint8_t j, i;
+main.cpp(93): warning:  #550-D: variable "counter" was set but never used
+    uint16_t counter;
+main.cpp: 2 warnings, 0 errors
+linking...
+.\build\MRK.axf: Error: L6200E: Symbol rtl_rx_buf multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_task multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_task_stack multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_sched multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_sched_cache multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_tsync_tx multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_rfRxInfo multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_rfTxInfo multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_tx_info multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_param multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_node_mode multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _tsync_index multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _dbg_index multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _rtl_sync_ok multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _rtl_ready multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _rtl_time_token multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _rtl_time_token_status multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _rtl_contention_pending multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol _rtl_contention_slots multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_rx_data_ready multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_rx_slot multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_abs_tx_ready multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol last_slot multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol prev_offset multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_drift_rate multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_abs_tx_slot multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_tsync_buf multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_tx_data_ready multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_tdma_rx_mask multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_tdma_tx_mask multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rx_callback multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol tx_callback multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol abs_callback multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol slot_callback multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol cycle_callback multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol last_slot_time multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol rtl_abs_wakeup multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol pkt_log multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol tsync_log multiply defined (by main.o and rt_link.o).
+.\build\MRK.axf: Error: L6200E: Symbol tsync_delay multiply defined (by main.o and rt_link.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 40 error messages.
+".\build\MRK.axf" - 40 Error(s), 63 Warning(s).
+Target not created
+</pre>
+</body>
+</html>
