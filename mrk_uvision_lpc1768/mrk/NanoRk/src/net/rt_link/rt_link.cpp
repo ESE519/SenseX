@@ -666,7 +666,7 @@ int8_t rtl_tx_abs_pkt (char *buf, uint8_t len, uint16_t abs_slot)
  *
  * Return:  currently always returns 1
  */
-int8_t rtl_tx_pkt (RF_TX_INFO *tx, uint8_t len, uint8_t slot)
+int8_t rtl_tx_pkt (char *tx, uint8_t len, uint8_t slot)
 {
 
     if (slot == RTL_CONTENTION) {
@@ -674,7 +674,7 @@ int8_t rtl_tx_pkt (RF_TX_INFO *tx, uint8_t len, uint8_t slot)
         slot = (TDMA_FRAME_SLOTS - slot - 1);
         _rtl_contention_pending = 1;
     }
-    rtl_tx_info[slot].pPayload = tx->pPayload;    // pass le pointer
+    rtl_tx_info[slot].pPayload = tx;    // pass le pointer
     rtl_tx_info[slot].length = len;    // pass le pointer
     rtl_tx_data_ready |= ((uint32_t) 1 << slot);        // set the flag
     return 1;
@@ -1476,12 +1476,12 @@ return NRK_OK;
 						if(_rtl_contention_pending==0) 
 						{
 							//printf( "cs" );
-							rtl_tx_pkt (&rtl_tsync_tx,rtl_tsync_tx.length, RTL_CONTENTION);
+							rtl_tx_pkt (rtl_tsync_tx.pPayload ,rtl_tsync_tx.length, RTL_CONTENTION);//CM:Palyed with the variables
 						} 
 						//else printf( "already pending\r\n" );
 					} else
 						{
-							rtl_tx_pkt (&rtl_tsync_tx,rtl_tsync_tx.length, slot);
+							rtl_tx_pkt (rtl_tsync_tx.pPayload,rtl_tsync_tx.length, slot);//CM:Palyed with the variables
 						//printf( "ss" );
 						}
 					}

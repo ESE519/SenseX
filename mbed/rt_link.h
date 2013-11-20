@@ -131,7 +131,7 @@ void rtl_set_channel(uint8_t chan);
 
 // Transmit API
 int8_t rtl_tx_pkt_check(uint8_t slot);
-int8_t rtl_tx_pkt (uint8_t *buf, uint8_t len, uint8_t slot);
+int8_t rtl_tx_pkt (char *buf, uint8_t len, uint8_t slot);
 int8_t rtl_tx_abs_pkt (char *buf, uint8_t len, uint16_t abs_slot);
 int8_t rtl_wait_until_tx_done(uint8_t slot);
 
@@ -141,8 +141,9 @@ int8_t rtl_rx_pkt_check();
 char* rtl_rx_pkt_get (uint8_t *len, int8_t *rssi, uint8_t *slot);
 void rtl_rx_pkt_release();
 int8_t rtl_wait_until_rx_pkt();
-int8_t rtl_rx_pkt_set_buffer(uint8_t *buf, uint8_t size);
+int8_t rtl_rx_pkt_set_buffer(char *buf, uint8_t size);
 
+int8_t rtl_wait_until_rx_or_tx ();
 
 // Signal Functions
 int8_t rtl_get_tx_done_signal();
@@ -174,7 +175,7 @@ RF_RX_INFO rtl_rfRxInfo;
 uint8_t rtl_rx_data_ready;
 volatile uint8_t rtl_rx_slot;
 // This is the link layer's only buffer
-volatile uint8_t rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];  
+volatile char rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];  
 
 // Extra slot at end for abs slot buffer pointer  
 //volatile RF_TX_INFO rtl_rfTxInfo; Chinmay:commented this out added the next line

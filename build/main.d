@@ -64,14 +64,7 @@
 .\build\main.o: .\mbed\nrk_task.h
 .\build\main.o: .\mbed\nrk.h
 .\build\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
-.\build\main.o: .\mbed\nrk_error.h
-.\build\main.o: .\mbed\nrk_timer.h
-.\build\main.o: .\mbed\nrk_stack_check.h
-.\build\main.o: .\mbed\nrk_stats.h
+.\build\main.o: .\mbed\rt_link.h
 .\build\main.o: .\mbed\basic_rf.h
 .\build\main.o: .\mbed\MRF24J40.h
-.\build\main.o: .\mbed\bmac.h
-.\build\main.o: .\mbed\nrk_driver.h
-.\build\main.o: .\mbed\nrk_driver_list.h
-.\build\main.o: .\mbed\ff_basic_sensor.h
-.\build\main.o: slave_defs.h
+.\build\main.o: .\mbed\nrk_error.h
