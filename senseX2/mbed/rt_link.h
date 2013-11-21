@@ -62,8 +62,8 @@
 #define _RTL_SYNC_WAKEUP_SLOT (MAX_SLOTS-10)
 
 
-nrk_task_type rtl_task;
-NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];
+extern nrk_task_type rtl_task;   //Declared Extern
+extern NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//Declared Extern
 
 // Fill this in with all packet fields.
 typedef enum {
@@ -84,17 +84,17 @@ typedef enum {
 	RTL_COORDINATOR
 } rtl_node_mode_t;
 
-rtl_node_mode_t rtl_node_mode;
+extern rtl_node_mode_t rtl_node_mode; // Declared Extern
 
 
 // some handy book keeping values
-uint16_t last_slot;
-nrk_time_t last_slot_time;
+extern uint16_t last_slot; 	//Declared Extern
+extern nrk_time_t last_slot_time; //Declared Extern
  /************************************rt_scheduler.h**************************************
  **************************************Declarations**************************************/
-uint8_t rtl_sched[16];            // only one since you can TX and RX on the same slot
-uint8_t rtl_sched_cache[32];
-uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
+extern uint8_t rtl_sched[16];            // only one since you can TX and RX on the same slot,Decleared Extern
+extern uint8_t rtl_sched_cache[32];				//Declared Extern
+extern uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
 
 /*****************************************************************************************
  *****************************************************************************************/
@@ -105,14 +105,14 @@ uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
 #define MAX_PKT_LOG  64 
 #define MAX_TSYNC_LOG 8
 
-uint16_t prev_offset;
-uint16_t rtl_drift_rate;
+extern uint16_t prev_offset; //Declared Extern
+extern uint16_t rtl_drift_rate;//Declared Extern
 
-uint8_t _tsync_index;
-uint8_t _dbg_index;
-uint8_t pkt_log[MAX_PKT_LOG/8];
-uint8_t tsync_log[MAX_TSYNC_LOG];
-uint8_t tsync_delay[MAX_TSYNC_LOG];
+extern uint8_t _tsync_index;	//Declared Extern
+extern uint8_t _dbg_index;		//Declared Extern
+extern uint8_t pkt_log[MAX_PKT_LOG/8];//Declared Extern
+extern uint8_t tsync_log[MAX_TSYNC_LOG]; //Declared Extern
+extern uint8_t tsync_delay[MAX_TSYNC_LOG]; //Declared Extern
 /*****************************************************************************************
  *****************************************************************************************/
 
@@ -152,34 +152,34 @@ int8_t rtl_get_rx_pkt_signal();
 
 // RTL only functions
 uint16_t rtl_get_global_slot();
-uint8_t _rtl_sync_ok;
-volatile uint8_t _rtl_ready;
+extern uint8_t _rtl_sync_ok; //Declared Extern
+extern volatile uint8_t _rtl_ready;//Declared Extern
 
 
 void rtl_nw_task();
 int8_t rtl_ready();
 
 
-uint8_t _rtl_time_token;
-uint8_t _rtl_time_token_status;
+extern uint8_t _rtl_time_token;    //Declared Extern
+extern uint8_t _rtl_time_token_status; //Declared Extern
 
 
-RF_TX_INFO rtl_tsync_tx;
-char rtl_tsync_buf[PKT_DATA_START];
+extern RF_TX_INFO rtl_tsync_tx; // Declared Extern
+extern char rtl_tsync_buf[PKT_DATA_START]; //Declared Extern
 
-uint8_t _rtl_contention_pending;
-uint8_t _rtl_contention_slots;
+extern uint8_t _rtl_contention_pending; //Declared Extern
+extern uint8_t _rtl_contention_slots;   //Declared Extern
 
 
-RF_RX_INFO rtl_rfRxInfo;
-uint8_t rtl_rx_data_ready;
-volatile uint8_t rtl_rx_slot;
+extern RF_RX_INFO rtl_rfRxInfo; //Declared Extern
+extern uint8_t rtl_rx_data_ready; //Declared Extern
+extern volatile uint8_t rtl_rx_slot; //Declared Extern
 // This is the link layer's only buffer
-volatile char rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];  
+extern volatile char rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];  //Declared Extern
 
 // Extra slot at end for abs slot buffer pointer  
 //volatile RF_TX_INFO rtl_rfTxInfo; Chinmay:commented this out added the next line
-RF_TX_INFO rtl_rfTxInfo;
+extern RF_TX_INFO rtl_rfTxInfo;		//Declared Extern
 /* changed by Tharun, replaced uint8_t with char */
 typedef struct {
 	int8_t length;
@@ -187,11 +187,11 @@ typedef struct {
 } RTL_TX_INFO;
 
 
-RTL_TX_INFO	rtl_tx_info[TDMA_FRAME_SLOTS+1]; 
+extern RTL_TX_INFO	rtl_tx_info[TDMA_FRAME_SLOTS+1]; //Declared Extern
 
-uint16_t rtl_abs_tx_slot;
-uint8_t rtl_abs_tx_ready;
-uint32_t rtl_tx_data_ready;
+extern uint16_t rtl_abs_tx_slot; //Declared Extern
+extern uint8_t rtl_abs_tx_ready; // Declared Extern
+extern uint32_t rtl_tx_data_ready;//Declared Extern
 
 
 uint16_t rtl_get_slot();
@@ -216,7 +216,7 @@ typedef struct {
     uint8_t mobile_sync_timeout;
 } rtl_param_t;
 
-rtl_param_t rtl_param;
+extern rtl_param_t rtl_param; //Declared Extern
 
 // Each set bit in the mask designates that the slot is used.
 // The actual schedule of which frames use the slot are computed
@@ -231,16 +231,16 @@ rtl_param_t rtl_param;
 // 4 -> 8  ( etc... )
 // 5 -> 16
 // 6 -> 32
-uint32_t rtl_tdma_rx_mask;
-uint32_t rtl_tdma_tx_mask;        
+extern uint32_t rtl_tdma_rx_mask; //Declared Extern
+extern uint32_t rtl_tdma_tx_mask; //Declared Extern      
 
 
 // Event Callback functions
-void (*rx_callback)(uint8_t slot);
-void (*tx_callback)(uint8_t slot);
-void (*abs_callback)(uint16_t global_slot);
-void (*slot_callback)(uint16_t global_slot);
-void (*cycle_callback)(uint16_t global_cycle); // cycles since the epoch
+extern void (*rx_callback)(uint8_t slot); //Declared Extern
+extern void (*tx_callback)(uint8_t slot); //Declared Extern
+extern void (*abs_callback)(uint16_t global_slot); //Declared Extern
+extern void (*slot_callback)(uint16_t global_slot); //Declared Extern
+extern void (*cycle_callback)(uint16_t global_cycle); // cycles since the epoch,Declared Extern
 
 void rtl_set_abs_callback(void *fp);
 void rtl_set_rx_callback(void *fp);
