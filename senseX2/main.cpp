@@ -93,6 +93,7 @@ void Task1()
   uint16_t counter;
   volatile nrk_time_t t;
   printf( "Task1 PID=%d\r\n",nrk_get_pid());
+	printf("THIS IS THE COORDINATOR\r\n");
   counter=0;
   cnt=0;
  
