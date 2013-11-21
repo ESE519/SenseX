@@ -54,6 +54,66 @@ volatile uint16_t global_cycle;
 uint16_t last_sync_slot;
 uint16_t slot_start_time;
 
+/* included by tharun */
+
+uint8_t _rtl_sync_ok;
+uint8_t _rtl_time_token; 
+uint8_t _rtl_time_token_status;
+RF_TX_INFO rtl_tsync_tx;
+char rtl_tsync_buf[PKT_DATA_START];
+uint8_t _rtl_contention_slots;
+RF_RX_INFO rtl_rfRxInfo;
+uint8_t rtl_rx_data_ready;
+volatile uint8_t rtl_rx_slot;
+volatile char rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];
+RF_TX_INFO rtl_rfTxInfo;	
+RTL_TX_INFO	rtl_tx_info[TDMA_FRAME_SLOTS+1];
+uint16_t rtl_abs_tx_slot;
+uint8_t rtl_abs_tx_ready; 
+uint32_t rtl_tx_data_ready;
+rtl_param_t rtl_param;
+uint32_t rtl_tdma_rx_mask;
+uint32_t rtl_tdma_tx_mask;
+void (*rx_callback)(uint8_t slot);
+void (*tx_callback)(uint8_t slot); //Declared Extern
+void (*abs_callback)(uint16_t global_slot); //Declared Extern
+void (*slot_callback)(uint16_t global_slot); //Declared Extern
+void (*cycle_callback)(uint16_t global_cycle); // cycles since the epoch,Declared Extern
+nrk_task_type rtl_task;   //Declared Extern
+NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//Declared Extern
+
+rtl_node_mode_t rtl_node_mode; // Declared Extern
+
+
+// some handy book keeping values
+uint16_t last_slot; 	//Declared Extern
+nrk_time_t last_slot_time; //Declared Extern
+ /************************************rt_scheduler.h**************************************
+ **************************************Declarations**************************************/
+uint8_t rtl_sched[16];            // only one since you can TX and RX on the same slot,Decleared Extern
+uint8_t rtl_sched_cache[32];				//Declared Extern
+uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
+
+uint16_t prev_offset; //Declared Extern
+uint16_t rtl_drift_rate;//Declared Extern
+
+uint8_t _tsync_index;	//Declared Extern
+uint8_t _dbg_index;		//Declared Extern
+uint8_t pkt_log[MAX_PKT_LOG/8];//Declared Extern
+uint8_t tsync_log[MAX_TSYNC_LOG]; //Declared Extern
+uint8_t tsync_delay[MAX_TSYNC_LOG]; //Declared Extern
+
+
+
+
+uint8_t _rtl_contention_pending;
+volatile uint8_t _rtl_ready;
+
+
+
+
+/* end of tharun's inclusions */
+
 int8_t rtl_tx_done_signal;
 int8_t rtl_rx_pkt_signal;
 /*****************************************************************************************
