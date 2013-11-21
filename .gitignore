@@ -1,8 +1,8 @@
-*.dep
-*.htm
-*.bak
-*.o
-*.crf
 *.map
-*.uvopt
-*.build_log.htm
+*.htm
+*.o
+*.d
+*.uvproj
+*.crf
+*.dep
+*.bak
