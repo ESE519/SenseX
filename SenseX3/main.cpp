@@ -138,7 +138,6 @@ void Task1()
                 printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT );
                 nrk_led_clr(GREEN_LED);
                }
-
           rtl_wait_until_rx_or_tx();
 
 
