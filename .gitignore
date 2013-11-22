@@ -2,7 +2,6 @@
 *.htm
 *.o
 *.d
-*.uvproj
 *.crf
 *.dep
 *.bak
