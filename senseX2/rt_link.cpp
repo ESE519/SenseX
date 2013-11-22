@@ -859,7 +859,7 @@ uint8_t _rtl_rx_sync ()
     _nrk_set_next_wakeup(250);
     //timeout=200;
 		
-    while ((n = rf_rx_check_sfd()) == 0) {
+    while ((n = rf_rx_check_fifop()) == 0) {
 	// every OS tick 
 			if(last_nrk_tick!=_nrk_os_timer_get()) 
 			{
