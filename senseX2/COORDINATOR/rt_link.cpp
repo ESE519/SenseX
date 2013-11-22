@@ -1080,7 +1080,7 @@ void _rtl_rx (uint8_t slot)
     while ((n = rf_rx_check_fifop()) == 0) {
       //  if (_nrk_get_high_speed_timer() > timeout) {
         if (_nrk_os_timer_get() > timeout) {
-							//printf("packet timed out at %d, %d", _nrk_os_timer_get(), _nrk_high_speed_timer_get()); // added by tharun
+							printf("packet timed out at %d, %d", _nrk_os_timer_get(), _nrk_high_speed_timer_get()); // added by tharun
             	rf_rx_off ();
 		#ifdef GPIO_RX_DEBUG
     		nrk_gpio_clr(NRK_DEBUG_1);

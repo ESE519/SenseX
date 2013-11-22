@@ -1,6 +1,5 @@
 *.map
 *.htm
-*.o
 *.d
 *.crf
 *.dep
