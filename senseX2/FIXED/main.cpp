@@ -39,8 +39,8 @@
 #include "rt_link.h"
 
 
-#define MY_TX_SLOT  6 
-#define MY_RX_SLOT  8 
+#define MY_TX_SLOT  8 
+#define MY_RX_SLOT  6 
 
 
 
@@ -93,11 +93,11 @@ void Task1()
   uint16_t counter;
   volatile nrk_time_t t;
   printf( "Task1 PID=%d\r\n",nrk_get_pid());
-	printf("THIS IS THE FIXED NODE\r\n");
+	printf("THIS IS THE COORDINATOR\r\n");
   counter=0;
   cnt=0;
  
-  rtl_init (RTL_FIXED);
+  rtl_init (RTL_COORDINATOR);
   //rtl_init (RTL_MOBILE);
   rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
   rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 ); 
