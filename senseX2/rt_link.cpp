@@ -1376,7 +1376,8 @@ return NRK_OK;
 		// Setup the AM sync ports etc
 		//AM_INIT ();   // FIXME
 		// Setup the cc2420 chip
-		rf_init (&rtl_rfRxInfo, rtl_param.channel, 0x2420, rtl_param.mac_addr);
+		//set up the mrf24j20 chip in our case
+		rf_init (&rtl_rfRxInfo, rtl_param.channel, 0xffff, 0);
 
 	}
 
