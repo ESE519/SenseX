@@ -62,8 +62,8 @@
 #define _RTL_SYNC_WAKEUP_SLOT (MAX_SLOTS-10)
 
 
-extern nrk_task_type rtl_task;   //Declared Extern
-extern NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//Declared Extern
+//extern nrk_task_type rtl_task;   //Declared Extern
+//extern NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//Declared Extern
 
 // Fill this in with all packet fields.
 typedef enum {
@@ -109,7 +109,7 @@ extern uint16_t prev_offset; //Declared Extern
 extern uint16_t rtl_drift_rate;//Declared Extern
 
 extern uint8_t _tsync_index;	//Declared Extern
-extern "C" uint8_t _dbg_index;		//Declared Extern
+extern uint8_t _dbg_index;		//Declared Extern
 extern uint8_t pkt_log[MAX_PKT_LOG/8];//Declared Extern
 extern uint8_t tsync_log[MAX_TSYNC_LOG]; //Declared Extern
 extern uint8_t tsync_delay[MAX_TSYNC_LOG]; //Declared Extern

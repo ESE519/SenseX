@@ -79,8 +79,9 @@ void (*tx_callback)(uint8_t slot); //Declared Extern
 void (*abs_callback)(uint16_t global_slot); //Declared Extern
 void (*slot_callback)(uint16_t global_slot); //Declared Extern
 void (*cycle_callback)(uint16_t global_cycle); // cycles since the epoch,Declared Extern
-nrk_task_type rtl_task;   //Declared Extern
-NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//Declared Extern
+
+static nrk_task_type rtl_task;   //Declared static by tharun on 11/22
+static NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//declared static by tharun on 11/22
 
 rtl_node_mode_t rtl_node_mode; // Declared Extern
 
@@ -228,6 +229,8 @@ int8_t rtl_clr_schedule (rtl_rx_tx_t rx_tx, uint8_t slot)
         rtl_sched[dslot] = rtl_sched[dslot] & 0xF0;
     else
         rtl_sched[dslot] = rtl_sched[dslot] & 0x0F;
+		
+		return 1;
 }
 
 /**
@@ -1229,29 +1232,29 @@ int8_t explicit_tsync;
 #endif
 }
 
-void rtl_set_cycle_callback (void *fp)
+void rtl_set_cycle_callback (void (*fp)(uint16_t))
 {
-    //cycle_callback = fp;
+    cycle_callback = fp;
 }
 
-void rtl_set_slot_callback (void *fp)
+void rtl_set_slot_callback (void (*fp)(uint16_t))
 {
-    //slot_callback = fp;
+    slot_callback = fp;
 }
 
-void rtl_set_rx_callback (void *fp)
+void rtl_set_rx_callback (void (*fp)(uint8_t))
 {
-    //rx_callback = fp;
+   rx_callback = fp;
 }
 
-void rtl_set_tx_callback (void *fp)
+void rtl_set_tx_callback (void (*fp)(uint8_t))
 {
-    //tx_callback = fp;
+   tx_callback = fp;
 }
 
-void rtl_set_abs_callback (void *fp)
+void rtl_set_abs_callback (void (*fp)(uint16_t))
 {
-   // abs_callback = fp;
+   abs_callback = fp;
 }
 
 void rtl_set_tx_power (uint8_t pwr)
