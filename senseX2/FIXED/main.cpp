@@ -93,12 +93,12 @@ void Task1()
   uint16_t counter;
   volatile nrk_time_t t;
   printf( "Task1 PID=%d\r\n",nrk_get_pid());
-	printf("THIS IS THE COORDINATOR\r\n");
+	printf("THIS IS THE FIXED NODE\r\n");
   counter=0;
   cnt=0;
  
-  rtl_init (RTL_COORDINATOR);
-  //rtl_init (RTL_MOBILE);
+  //rtl_init (RTL_FIXED);
+  rtl_init (RTL_MOBILE);
   rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
   rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 ); 
 //  rtl_set_contention(8,1);
@@ -107,39 +107,37 @@ void Task1()
   rtl_rx_pkt_set_buffer(rx_buf, RF_MAX_PAYLOAD_SIZE);
   nrk_kprintf( PSTR("start done\r\n") );
   while(!rtl_ready())  nrk_wait_until_next_period(); 
-  while(1) {
-	 
+  while(1) {	 
 	  if( rtl_rx_pkt_check()!=0 )
-               {
-                   nrk_led_set(BLUE_LED);
-		   local_rx_buf=rtl_rx_pkt_get(&length, &rssi, &slot);
-                   printf( "Got Packet on slot %d %d: ",slot,length );
-                   for(i=PKT_DATA_START; i<length; i++ )
-                   {
-                        printf( "%c",local_rx_buf[i] );
-                   }
-                   nrk_kprintf( PSTR("\r\n") );
-                   rtl_rx_pkt_release();
-                   nrk_led_clr(BLUE_LED);
-               }
+		{
+			nrk_led_set(BLUE_LED);
+		  local_rx_buf=rtl_rx_pkt_get(&length, &rssi, &slot);
+      printf( "Got Packet on slot %d %d: ",slot,length );
+      for(i=PKT_DATA_START; i<length; i++ )
+      {
+				printf( "%c",local_rx_buf[i] );
+      }
+      nrk_kprintf( PSTR("\r\n") );
+      rtl_rx_pkt_release();
+      nrk_led_clr(BLUE_LED);
+		}
  
 	  if( rtl_tx_pkt_check(MY_TX_SLOT)!=0 )
-	       {
+		{
 		  printf( "Pending on slot %d\r\n",MY_TX_SLOT );
-	       }
-	  else {
-		nrk_led_set(RED_LED);
-    		cnt++;
-    		sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
-		length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
-		rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
-		nrk_led_clr(RED_LED);
-	       }
+		}
+	  else 
+		{
+			nrk_led_set(RED_LED);
+    	cnt++;
+    	sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
+			length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
+			rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
+			nrk_led_clr(RED_LED);			
+		}
 	 
 	  //nrk_wait_until_next_period(); 
-	  rtl_wait_until_rx_or_tx();
-
-	  
+	  rtl_wait_until_rx_or_tx();	  
   	}
 }
 

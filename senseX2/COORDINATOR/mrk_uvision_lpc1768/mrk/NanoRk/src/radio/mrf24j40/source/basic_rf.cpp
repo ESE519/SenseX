@@ -350,9 +350,10 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
     mrf_write_long(TXNFIFO+9, rfSettings.myAddr & 0xFF);
     mrf_write_long(TXNFIFO+10, rfSettings.myAddr >> 8);
 		
-		printf("Time before %d", _nrk_high_speed_timer_get());
+		//printf("Time before %d", _nrk_high_speed_timer_get());
 		nrk_high_speed_timer_wait(slot_start_time,tx_guard_time);
-		printf("Time after %d \r\n", _nrk_high_speed_timer_get());
+		//printf("Time after %d \r\n", _nrk_high_speed_timer_get());
+		printf("sending packet from at %d\r \n",_nrk_high_speed_timer_get());
 				
 
 		for(i = 0; i < pRTI->length; i++) {

@@ -39,8 +39,8 @@
 #include "rt_link.h"
 
 
-#define MY_TX_SLOT  8 
-#define MY_RX_SLOT  6 
+#define MY_TX_SLOT  6 
+#define MY_RX_SLOT  8 
 
 
 
@@ -107,40 +107,36 @@ void Task1()
   rtl_rx_pkt_set_buffer(rx_buf, RF_MAX_PAYLOAD_SIZE);
   nrk_kprintf( PSTR("start done\r\n") );
   while(!rtl_ready())  nrk_wait_until_next_period(); 
-  while(1) {
-	 
+  while(1) {	 
 	  if( rtl_rx_pkt_check()!=0 )
-               {
-                   nrk_led_set(BLUE_LED);
+     {
+       nrk_led_set(BLUE_LED);
 		   local_rx_buf=rtl_rx_pkt_get(&length, &rssi, &slot);
-                   printf( "Got Packet on slot %d %d: ",slot,length );
-                   for(i=PKT_DATA_START; i<length; i++ )
-                   {
-                        printf( "%c",local_rx_buf[i] );
-                   }
-                   nrk_kprintf( PSTR("\r\n") );
-                   rtl_rx_pkt_release();
-                   nrk_led_clr(BLUE_LED);
-               }
- 
-	  if( rtl_tx_pkt_check(MY_TX_SLOT)!=0 )
-	       {
-		  printf( "Pending on slot %d\r\n",MY_TX_SLOT );
-	       }
+       printf( "Got Packet on slot %d %d: ",slot,length );
+       for(i=PKT_DATA_START; i<length; i++ )
+       {
+       printf( "%c",local_rx_buf[i] );
+       }
+       nrk_kprintf( PSTR("\r\n") );
+       rtl_rx_pkt_release();
+       nrk_led_clr(BLUE_LED);
+		 }
+ 	  if( rtl_tx_pkt_check(MY_TX_SLOT)!=0 )
+		{
+		  //printf( "Pending on slot %d\r\n",MY_TX_SLOT );
+		}
 	  else {
-		nrk_led_set(RED_LED);
-    		cnt++;
-    		sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
-		length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
-		rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
-		printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT );
-		nrk_led_clr(RED_LED);
-	       }
+			nrk_led_set(RED_LED);
+    	cnt++;
+    	sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
+			length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
+			rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
+			//printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT);
+			nrk_led_clr(RED_LED);
+		}
 	 
 	  //nrk_wait_until_next_period(); 
 	  rtl_wait_until_rx_or_tx();
-
-	  
   	}
 }
 

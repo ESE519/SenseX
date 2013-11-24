@@ -305,7 +305,7 @@ uint8_t rf_rx_check_cca()
 
 int8_t rf_rx_packet(void)
 {
-    int8_t tmp;
+		int8_t tmp;
     if(rx_data_ready > 0) {
         tmp = rx_data_ready;
         rx_data_ready = 0;
@@ -481,6 +481,7 @@ void rf_parse_rx_packet(void)
         }
     
         rfSettings.pRxInfo->rssi = mrf_read_long(RXFIFO+1+length+1);
+				printf("receiving packet at %d \r \n", _nrk_high_speed_timer_get());	
         rx_data_ready = 1;
     }
     
