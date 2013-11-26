@@ -128,14 +128,14 @@ void Task1()
 		}
 	  else {
 			//nrk_led_set(RED_LED);
-			if (tx_counter < 10) {
+			
 				cnt++;
 				sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
 				length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;				
 				rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
 				printf( "Sending pkt slot %d\r\n",MY_TX_SLOT);
 				tx_counter++;
-			}
+
 			//nrk_led_clr(RED_LED);
 		}
 	 

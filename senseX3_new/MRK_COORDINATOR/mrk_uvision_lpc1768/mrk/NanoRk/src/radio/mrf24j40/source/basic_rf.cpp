@@ -385,6 +385,9 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
     // Wait for Tx to finish
     while(!tx_status_ready);
     
+		nrk_gpio_toggle(DEBUG_0);
+		//nrk_gpio_clr(DEBUG_0);
+		
     success = 1;
     if(auto_ack_enable || pRTI->ackRequest) {
         success = !(mrf_read_short(TXSTAT) & 0x01);

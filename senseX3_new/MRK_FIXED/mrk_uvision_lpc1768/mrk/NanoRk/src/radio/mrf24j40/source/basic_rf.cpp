@@ -509,8 +509,9 @@ extern "C" void EINT3_IRQHandler(void)
         tx_status_ready = 1;
     }
     if(flags & 0x08) {
-			
-				nrk_led_set(GREEN_LED);
+				
+				nrk_gpio_toggle(DEBUG_0);
+				//nrk_led_set(GREEN_LED);
         rf_parse_rx_packet();
         rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);
     }
