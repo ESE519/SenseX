@@ -1130,7 +1130,7 @@ void _rtl_rx (uint8_t slot)
 			// XXX HUGE HACK!
 			// This shouldn't happen, but it does.  This should
 			// be fixed soon.
-			//printf( "global slot mismatch: %d %d\r\n",global_slot,tmp );
+			printf( "mismatch coord: %d %d\r\n",global_slot,tmp );			
 			global_slot=tmp;
 			}	
       //printf ("my slot = %d  rx slot = %d\r\n", global_slot, tmp);
@@ -1465,7 +1465,7 @@ return NRK_OK;
 
 			if (slot_callback != NULL)
 				slot_callback (global_slot);
-
+		
 		if (rtl_node_mode == RTL_MOBILE ){
 			if ( global_slot==last_sync_slot+1 ) 
 				{
@@ -1516,8 +1516,8 @@ return NRK_OK;
 	  if (rtl_node_mode == RTL_COORDINATOR && global_slot==0) 
 		{
 		//printf("sync token time \r \n");
-		_rtl_time_token++;  // Coordinator increases sync token
-		if(_rtl_time_token>127) _rtl_time_token=0;
+			_rtl_time_token++;  // Coordinator increases sync token
+			if(_rtl_time_token>127) _rtl_time_token=0;
 		}
 		
 		
@@ -1594,7 +1594,9 @@ return NRK_OK;
 		}
 		else
 		{
+			//printf("nso is %d, gs is %d, slot %d \r \n", next_slot_offset, global_slot, global_slot%32);
 			global_slot += next_slot_offset;
+			printf("global slot is %d \r \n", global_slot);
 			//nrk_clr_led (1);
 		#ifdef LED_SLOT_DEBUG
 		nrk_led_clr(0);

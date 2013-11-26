@@ -124,7 +124,7 @@ void Task1()
  
 	  if( rtl_tx_pkt_check(MY_TX_SLOT)!=0 )
 		{
-		  printf( "Pending on slot %d\r\n",MY_TX_SLOT );
+		  //printf( "Pending on slot %d\r\n",MY_TX_SLOT );
 		}
 	  else 
 		{

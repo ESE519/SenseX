@@ -857,12 +857,12 @@ uint8_t _rtl_rx_sync ()
     _rtl_sync_ok = 0;
     last_nrk_tick=0;  // should be 0 going in
     //_nrk_prev_timer_val=250;
+		//printf("nxt tmr wakeup %d \r \n", _nrk_get_next_wakeup());
     _nrk_set_next_wakeup(250);
     //timeout=200;
 		
     while ((n = rf_rx_check_fifop()) == 0) {
-	// every OS tick 
-			
+	// every OS tick 			
 			if(last_nrk_tick!=_nrk_os_timer_get()) 
 			{
 			//_nrk_stop_high_speed_timer();
@@ -885,6 +885,7 @@ uint8_t _rtl_rx_sync ()
 				} 
 			}
     }
+		//printf("got pkt \r\n");
 
     // nrk_kprintf( PSTR("got sfd\r\n"));
     // Wait measured time until next slot
@@ -894,6 +895,7 @@ uint8_t _rtl_rx_sync ()
     // capture SFD transition with high speed timer
     sfd_start_time=_nrk_high_speed_timer_get();
     tdma_start_tick=_nrk_os_timer_get();
+		//printf("tdma %d \r\n", tdma_start_tick);
     //nrk_gpio_set(NRK_DEBUG_1);
 
     timeout = tdma_start_tick+4;
@@ -903,24 +905,26 @@ uint8_t _rtl_rx_sync ()
         // Packet on its way
         while ((n = rf_polling_rx_packet ()) == 0) {
             if (_nrk_os_timer_get () > timeout) {								
-							//nrk_kprintf( PSTR("Pkt timed out\r\n") );
+							//nrk_kprintf( PSTR("Pkt timed out\r\n") );							
                break;          // huge timeout as failsafe
 					}
-				}
+				}				
 			}
     
     rf_rx_off ();
     if (n == 1 && rtl_rfRxInfo.length>0) {
         // CRC and checksum passed
-				
+				//printf("got pkt");
 				uint8_t explicit_sync_pkt;
 				rtl_rx_data_ready = 1;
         //rtl_rx_slot = 0;
         global_slot = rtl_rfRxInfo.pPayload[GLOBAL_SLOT];
         global_slot <<= 8;
         global_slot |= rtl_rfRxInfo.pPayload[GLOBAL_SLOT + 1];
-        //global_slot++;
+        //printf("gs %d \r\n", global_slot);
+				//global_slot++;
         tmp_token= 0x7F & (rtl_rfRxInfo.pPayload[TIME_SYNC_TOKEN]);
+				//printf("tmptkn %d \r \n", tmp_token);
 				//printf( " glob %d: ",global_slot );
         //printf ("sync slot %d %d\r\n", global_slot, rtl_rfRxInfo.length);
 				// Time Sync Token goes to 127 since MSB is the explicit sync flag
@@ -930,12 +934,14 @@ uint8_t _rtl_rx_sync ()
 				//printf( "token %d %d\r\n",tmp_token,_rtl_time_token);
       
         // check if this should be just greater than! 
+				//printf("rtl time tkn %d \r \n", _rtl_time_token);
 				if(tmp_token>_rtl_time_token || (_rtl_time_token>110 && tmp_token<10))
 				{
 					rtl_rx_slot = (global_slot ) % 32;
 				// only acccept sync if the token is greater than yours
 					if((rtl_rfRxInfo.pPayload[TIME_SYNC_TOKEN]&0x80)==0 )
 					{
+						//printf("normal pkt \r\n");
 					// Got normal packet 
 					// if we got a good packet, send the signal to
 					// the application
@@ -952,12 +958,13 @@ uint8_t _rtl_rx_sync ()
 					// so it doesn't block a buffer...
 					else { 
 					// Explicit Sync
-					
+					//printf("sync pkt \r \n");
 					rtl_rx_pkt_release(); 
 					//	nrk_event_signal (SIG(RTL_RX_PKT_EVENT));
 		
 					}
 					// Got a good signal...
+						
 						break;
 			} 
 				/*else 
@@ -969,9 +976,11 @@ uint8_t _rtl_rx_sync ()
     } //else printf( "Error n=%d %d\r\n", n, rtl_rfRxInfo.length);
 }
 
+		
 #ifdef LED_DEBUG
     nrk_led_clr(1);
 #endif
+		
 		
     rtl_rx_slot = (global_slot) % 32;
     current_global_slot = global_slot-1;
@@ -1461,6 +1470,7 @@ return NRK_OK;
 		
 			current_global_slot = global_slot;
 			if (global_slot >= MAX_SLOTS) {
+			
 				global_slot = 0;
 				global_cycle++;
 				//printf("current global cycle %d at time %d %d \r \n", global_cycle, _nrk_os_timer_get(), _nrk_high_speed_timer_get()); // each global cycle starts at 0 782
@@ -1476,6 +1486,7 @@ return NRK_OK;
 			if (slot_callback != NULL)
 				slot_callback (global_slot);
 
+		//printf("gs be %d \r \n", global_slot);
 		if (rtl_node_mode == RTL_MOBILE ){
 			if ( global_slot==last_sync_slot+1 ) 
 				{
@@ -1492,6 +1503,9 @@ return NRK_OK;
 				//_nrk_start_high_speed_timer();  
 				}
 			}
+		
+		//printf("gs af %d \r \n", global_slot);
+		//printf("came out gs %d\r\n", global_slot);
 		// This call is required to clear abs schedules
 			if (_rtl_match_abs_wakeup (global_slot) == 1) {
 				//printf( "Application Timer!\n" );
@@ -1575,15 +1589,17 @@ return NRK_OK;
 		//printf(" last sync slot %d \r \n", last_sync_slot);  // comes out as 0
 		if(global_slot!=last_sync_slot)
 		{
+			//
 		// if TX slot mask and ready flag, send a packet
 			if (slot_mask & rtl_tx_data_ready & rtl_tdma_tx_mask)
 			{
+				
 				_rtl_tx (slot); 
 			//printf( "sent %d\r\n",slot );
 			}
 		// if RX slot mask and RX buffer free, try to receive a packet
 			else if ((slot_mask & rtl_tdma_rx_mask) && (rtl_rx_data_ready == 0))
-			{
+			{				
 			  _rtl_rx (slot);
 			} 
 			else if (global_slot == rtl_abs_tx_slot) 
@@ -1604,8 +1620,11 @@ return NRK_OK;
 			nrk_wait_until_ticks(5);
 		}
 		else
-		{
+		{			
 			global_slot += next_slot_offset;
+			printf("gs nso %d %d \r\n", global_slot, next_slot_offset);
+			if (global_slot == 1024) printf("entering here");
+			
 			//nrk_clr_led (1);
 		#ifdef LED_SLOT_DEBUG
 		nrk_led_clr(0);
@@ -1614,7 +1633,9 @@ return NRK_OK;
 		#ifdef GPIO_SLOT_DEBUG
 		nrk_gpio_clr(NRK_DEBUG_0);
 		#endif
+				
 			nrk_wait_until_next_n_periods (next_slot_offset);
+			
 		#ifdef LED_SLOT_DEBUG
 		nrk_led_set(0);
 		#endif

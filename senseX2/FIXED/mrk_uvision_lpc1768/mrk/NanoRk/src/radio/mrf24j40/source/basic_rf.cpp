@@ -481,7 +481,7 @@ void rf_parse_rx_packet(void)
         }
     
         rfSettings.pRxInfo->rssi = mrf_read_long(RXFIFO+1+length+1);
-				printf("receiving packet at %d \r \n", _nrk_high_speed_timer_get());	
+				//printf("receiving packet at %d \r \n", _nrk_high_speed_timer_get());	
         rx_data_ready = 1;
     }
     
