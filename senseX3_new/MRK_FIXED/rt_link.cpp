@@ -1512,15 +1512,18 @@ void rtl_nw_task ()
 			//printf( "sent %d\r\n",slot );
 			}
 			// if RX slot mask and RX buffer free, try to receive a packet
-			else if ((slot_mask & rtl_tdma_rx_mask) && (rtl_rx_data_ready == 0))
+			/*else if ((slot_mask & rtl_tdma_rx_mask) && (rtl_rx_data_ready == 0))
 			{
 			  _rtl_rx (slot);
-			} 
+			} */
 			else if (global_slot == rtl_abs_tx_slot) 
 			{
 				// Make sure this isn't overlapping a normal TX slot!
 				_rtl_tx (TDMA_FRAME_SLOTS + 1);
 				rtl_abs_tx_ready = 0;
+			}
+			else {
+				_rtl_rx(slot);
 			}
 		}
 

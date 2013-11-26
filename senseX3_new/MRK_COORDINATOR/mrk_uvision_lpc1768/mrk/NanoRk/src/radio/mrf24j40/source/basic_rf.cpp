@@ -26,7 +26,7 @@
 #include "basic_rf.h"
 #include "nrk_timer.h"
 
-#define LED_DEBUG
+//#define LED_DEBUG
 
 #define MRF_FSM_RESET()     do{ mrf_write_short(RFCTL, 0x04); mrf_write_short(RFCTL, 0x00); } while(0)
 
@@ -359,7 +359,7 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
 		//printf("sending packet from at %d\r \n",_nrk_high_speed_timer_get());
 		
 			#ifdef LED_DEBUG
-				nrk_led_toggle(BLUE_LED);
+				nrk_led_toggle(BLUE_LED);					
 			#endif
 
 		for(i = 0; i < pRTI->length; i++) {

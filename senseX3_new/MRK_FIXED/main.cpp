@@ -97,7 +97,7 @@ void Task1()
   counter=0;
   cnt=0;
  
-  rtl_init (RTL_MOBILE);
+  rtl_init (RTL_FIXED);
   //rtl_init (RTL_MOBILE);
   rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
   rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 ); 

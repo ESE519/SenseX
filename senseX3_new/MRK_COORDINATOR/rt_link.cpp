@@ -34,7 +34,7 @@
 #include <rtl_defs.h>
 #include <stdlib.h>
 
-#define LED_DEBUG_RTL
+//#define LED_DEBUG_RTL
 
 uint16_t global_slot;
 uint16_t current_global_slot;
@@ -595,7 +595,9 @@ int8_t rtl_tx_pkt (char *tx, uint8_t len, uint8_t slot)
     rtl_tx_info[slot].pPayload = tx;    // pass le pointer
     rtl_tx_info[slot].length = len;    // pass le pointer
     rtl_tx_data_ready |= ((uint32_t) 1 << slot);        // set the flag
-    return 1;
+    
+		return 1;
+		
 }
 
 /* most IMPORTANT AND LONGEST FUNCTION */
@@ -1305,7 +1307,7 @@ return rtl_rfRxInfo.pPayload;
 		//rtl_param.tx_guard_time = 300;
 		rtl_param.tx_guard_time = TX_GUARD_TIME;  // 144uS  410-266 // Putting 0.5 ms as the guard time /* Tharun */
 		//rtl_param.tx_guard_time = 1600;  // 144uS  410-266
-		rtl_param.channel = 9;
+		rtl_param.channel = 11;
 		rtl_param.mac_addr = 0x1980;
 
 	for (i = 0; i < 16; i++) {
@@ -1361,6 +1363,7 @@ void rtl_nw_task ()
 			nrk_time_get (&last_slot_time);
 			last_slot = global_slot;
 			
+			//printf("hi");
 			if (last_slot == 1025)
 				last_slot = 0;
 		
@@ -1440,6 +1443,9 @@ void rtl_nw_task ()
 		
 		
 		if (rtl_node_mode == RTL_COORDINATOR && slot==0)  {
+			#ifdef LED_DEBUG_RTL
+				nrk_led_toggle(GREEN_LED);
+			#endif
 			_rtl_time_token_status=RTL_TOKEN_NOT_SENT; 
 					// generate explicit packet
 					// When the link layer receives an explicit sync, it does not block buffers
@@ -1509,6 +1515,7 @@ void rtl_nw_task ()
 			// if TX slot mask and ready flag, send a packet
 			if (slot_mask & rtl_tx_data_ready & rtl_tdma_tx_mask)
 			{
+			
 				_rtl_tx (slot); 
 			//printf( "sent %d\r\n",slot );
 			}

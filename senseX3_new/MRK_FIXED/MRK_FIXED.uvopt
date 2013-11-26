@@ -75,7 +75,7 @@
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
-      <CpuCode>0</CpuCode>
+      <CpuCode>8</CpuCode>
       <DllOpt>
         <SimDllName>SARMCM3.DLL</SimDllName>
         <SimDllArguments>-MPU</SimDllArguments>
@@ -216,7 +216,7 @@
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>0</IsCurrentTarget>
       </OPTFL>
-      <CpuCode>0</CpuCode>
+      <CpuCode>8</CpuCode>
       <DllOpt>
         <SimDllName>SARM.DLL</SimDllName>
         <SimDllArguments>-cLPC236x</SimDllArguments>
@@ -357,7 +357,7 @@
       <Focus>0</Focus>
       <ColumnNumber>15</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>191</TopLine>
+      <TopLine>197</TopLine>
       <CurrentLine>201</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_timer.cpp</PathWithFileName>
@@ -645,7 +645,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>528</TopLine>
+      <TopLine>539</TopLine>
       <CurrentLine>543</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp</PathWithFileName>
@@ -659,10 +659,10 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>4</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>358</TopLine>
-      <CurrentLine>323</CurrentLine>
+      <TopLine>334</TopLine>
+      <CurrentLine>332</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp</PathWithFileName>
       <FilenameWithoutPath>basic_rf.cpp</FilenameWithoutPath>
@@ -691,10 +691,10 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>4</ColumnNumber>
+      <ColumnNumber>22</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1512</TopLine>
-      <CurrentLine>1530</CurrentLine>
+      <CurrentLine>1526</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\rt_link.cpp</PathWithFileName>
       <FilenameWithoutPath>rt_link.cpp</FilenameWithoutPath>
@@ -707,10 +707,10 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>26</ColumnNumber>
+      <ColumnNumber>23</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>101</TopLine>
-      <CurrentLine>102</CurrentLine>
+      <TopLine>86</TopLine>
+      <CurrentLine>100</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.cpp</PathWithFileName>
       <FilenameWithoutPath>main.cpp</FilenameWithoutPath>

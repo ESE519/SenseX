@@ -412,7 +412,7 @@ extern "C" void TIMER0_IRQHandler (void) {
 				//NVIC_ClearPendingIRQ(TIMER0_IRQn);
 			 // pc5.printf("interrupt called\r\n");
     }
-		// nrk_led_toggle(BLUE_LED);
+	//	nrk_led_toggle(BLUE_LED);
 }
 
 extern "C" void TIMER1_IRQHandler (void) {
@@ -420,5 +420,6 @@ extern "C" void TIMER1_IRQHandler (void) {
     {
         LPC_TIM1->IR |= (1 << 0); // Clear MR0 interrupt flag
     }
+		//nrk_led_toggle(BLUE_LED);
 }
 
