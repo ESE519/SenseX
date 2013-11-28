@@ -350,13 +350,7 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
     mrf_write_long(TXNFIFO+8, pRTI->destAddr >> 8);
     mrf_write_long(TXNFIFO+9, rfSettings.myAddr & 0xFF);
     mrf_write_long(TXNFIFO+10, rfSettings.myAddr >> 8);
-		
-		// Resetting the timer /* Tharun */
-		_nrk_high_speed_timer_reset();
-		//printf("Time before %d %d", slot_start_time, _nrk_high_speed_timer_get());
-		nrk_high_speed_timer_wait(slot_start_time,tx_guard_time);
-		//printf("Time after %d \r\n", _nrk_high_speed_timer_get());
-		//printf("sending packet from at %d\r \n",_nrk_high_speed_timer_get());
+	
 		
 			#ifdef LED_DEBUG
 				nrk_led_toggle(BLUE_LED);					
@@ -378,7 +372,13 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
 					halWait(100);
 				}
     }
-    
+    	
+		// Resetting the timer /* Tharun */
+		_nrk_high_speed_timer_reset();
+		//printf("Time before %d %d", slot_start_time, _nrk_high_speed_timer_get());
+		nrk_high_speed_timer_wait(slot_start_time,tx_guard_time);
+		//printf("Time after %d \r\n", _nrk_high_speed_timer_get());
+		//printf("sending packet from at %d\r \n",_nrk_high_speed_timer_get());
     tx_status_ready = 0;
     mrf_write_short(TXNCON, auto_ack_enable ? 0x05 : 0x01);  // Send contents of TXNFIFO as packet
     
@@ -511,13 +511,15 @@ extern "C" void EINT3_IRQHandler(void)
     flags = mrf_read_short(INTSTAT);        // Read radio interrupt flags
 	
 		if(flags & 0x01) {
+				nrk_gpio_toggle(DEBUG_0);
+				nrk_led_toggle(RED_LED);
         tx_status_ready = 1;
     }
-    if(flags & 0x08) {
+    else if(flags & 0x08) {
 			
-				nrk_led_toggle(GREEN_LED);
+				//nrk_led_toggle(GREEN_LED);
+				nrk_gpio_toggle(DEBUG_1);
         rf_parse_rx_packet();
         rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);
     }
 }
-

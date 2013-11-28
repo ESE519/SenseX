@@ -150,7 +150,7 @@ void _nrk_high_speed_timer_start()
 void _nrk_high_speed_timer_reset()
 {
     LPC_TIM1->TCR |= BM(1); // reset timer1
-    LPC_TIM1->TCR &= ~BM(1); // release reset
+    //LPC_TIM1->TCR &= ~BM(1); // release reset
 }
 
 

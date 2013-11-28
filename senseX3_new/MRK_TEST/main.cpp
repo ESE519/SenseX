@@ -28,10 +28,25 @@ void nrk_create_taskset ();
 char tx_buf[RF_MAX_PAYLOAD_SIZE];
 char rx_buf[RF_MAX_PAYLOAD_SIZE];
 
+extern "C"
+void HardFault_Handler() {
+    register unsigned int _msp __asm("msp");
+    printf("Hard Fault! %x (%x)\r\n", SCB->HFSR, *((unsigned int *)(_msp + 24)));
+    printf("HFSR: 0x%X\n\r", SCB->HFSR);
+    printf("MMFAR: 0x%X\tMMFSR: 0x%X\n\r", SCB->MMFAR, SCB->CFSR);
+    printf("BFAR: 0x%X\tBFSR: 0x%X\n\r", SCB->BFAR, SCB->CFSR);
+    printf(" - %x\r\n", (*(volatile uint32_t*)0xe000ed24));
+//    printf("Hard Fault! %x\r\n", SCB->HFSR);
+
+        printf("*********** MPU Settings *************\n\r");
+        //printf("TYPE: 0x%X\n\r", mpu.TYPE);
+        //printf("CTRL: 0x%X\n\r", mpu.CTRL);
+    exit(-1);
+}
 int main(void)
 
   {
-        
+												//HardFault_Handler();
                         nrk_setup_ports();
                         nrk_init();
                         bmac_task_config();
@@ -143,6 +158,7 @@ void tx_task ()
         
   while (1) {
     // Build a TX packet
+		printf("Transmitting \r\n");
     sprintf (tx_buf, "This is a test %d", cnt);
     nrk_led_set (BLUE_LED);
                 
@@ -204,7 +220,7 @@ void nrk_create_taskset ()
 {
 
 
-  RX_TASK.task = rx_task;
+  /*RX_TASK.task = rx_task;
   nrk_task_set_stk( &RX_TASK, rx_task_stack, NRK_APP_STACKSIZE);
   RX_TASK.prio = 2;
   RX_TASK.FirstActivation = TRUE;
@@ -216,7 +232,7 @@ void nrk_create_taskset ()
   RX_TASK.cpu_reserve.nano_secs = 500 * NANOS_PER_MS;
   RX_TASK.offset.secs = 0;
   RX_TASK.offset.nano_secs = 0;
-  nrk_activate_task (&RX_TASK);
+  nrk_activate_task (&RX_TASK); */
 
   TX_TASK.task = tx_task;
   nrk_task_set_stk( &TX_TASK, tx_task_stack, NRK_APP_STACKSIZE);

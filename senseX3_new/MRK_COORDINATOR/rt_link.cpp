@@ -921,6 +921,7 @@ void _rtl_tx (uint8_t slot)
   // to the main TX packet
   rtl_rfTxInfo.pPayload=rtl_tx_info[slot].pPayload;
   rtl_rfTxInfo.length=rtl_tx_info[slot].length;
+	rtl_rfTxInfo.ackRequest = 0;
 
   rtl_rfTxInfo.pPayload[GLOBAL_SLOT] = (global_slot >> 8);
   rtl_rfTxInfo.pPayload[GLOBAL_SLOT + 1] = (global_slot & 0xFF);
@@ -949,6 +950,7 @@ void _rtl_tx (uint8_t slot)
 #endif
     //rf_tx_packet (rtl_rfTxInfo[slot]);
 		
+		//rf_tx_packet(&rtl_rfTxInfo);
     rf_tx_tdma_packet (&rtl_rfTxInfo , slot_start_time, rtl_param.tx_guard_time);
     rtl_tx_data_ready &= ~((uint32_t) 1 << slot);       // clear the flag
     if (slot >= (TDMA_FRAME_SLOTS - _rtl_contention_slots))
@@ -1310,7 +1312,7 @@ return rtl_rfRxInfo.pPayload;
 		//rtl_param.tx_guard_time = 300;
 		rtl_param.tx_guard_time = TX_GUARD_TIME;  // 144uS  410-266 // Putting 0.5 ms as the guard time /* Tharun */
 		//rtl_param.tx_guard_time = 1600;  // 144uS  410-266
-		rtl_param.channel = 11;
+		rtl_param.channel = 9;
 		rtl_param.mac_addr = 0x1980;
 
 	for (i = 0; i < 16; i++) {
@@ -1330,6 +1332,11 @@ return rtl_rfRxInfo.pPayload;
 		// Setup the cc2420 chip
 		//set up the mrf24j20 chip in our case
 		rf_init (&rtl_rfRxInfo, rtl_param.channel, 0xffff, 0);
+		rf_set_cca_thresh(-45);
+		rf_addr_decode_disable();
+		rf_auto_ack_disable();
+		
+		
 }
 	
 void rtl_nw_task ()

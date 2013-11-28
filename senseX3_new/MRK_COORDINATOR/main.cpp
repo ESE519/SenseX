@@ -39,7 +39,7 @@
 #include "rt_link.h"
 
 
-#define MY_TX_SLOT  6 
+#define MY_TX_SLOT  6
 #define MY_RX_SLOT  8 
 
 
@@ -53,11 +53,27 @@ void nrk_create_taskset();
 
 char tx_buf[MAX_RTL_PKT_SIZE];
 char rx_buf[MAX_RTL_PKT_SIZE];
+extern "C"
+void HardFault_Handler() {
+    register unsigned int _msp __asm("msp");
+    printf("Hard Fault! %x (%x)\r\n", SCB->HFSR, *((unsigned int *)(_msp + 24)));
+    printf("HFSR: 0x%X\n\r", SCB->HFSR);
+    printf("MMFAR: 0x%X\tMMFSR: 0x%X\n\r", SCB->MMFAR, SCB->CFSR);
+    printf("BFAR: 0x%X\tBFSR: 0x%X\n\r", SCB->BFAR, SCB->CFSR);
+    printf(" - %x\r\n", (*(volatile uint32_t*)0xe000ed24));
+//    printf("Hard Fault! %x\r\n", SCB->HFSR);
 
+        printf("*********** MPU Settings *************\n\r");
+        //printf("TYPE: 0x%X\n\r", mpu.TYPE);
+       //printf("CTRL: 0x%X\n\r", mpu.CTRL);
+    exit(-1);
+}
 int
 main ()
 {
-  nrk_setup_ports();
+
+	//HardFault_Handler();
+	nrk_setup_ports();
   //nrk_setup_uart(UART_BAUDRATE_115K2);
 
   nrk_kprintf( PSTR("Starting up...\r\n") );

@@ -385,7 +385,7 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
     // Wait for Tx to finish
     while(!tx_status_ready);
     
-		nrk_gpio_toggle(DEBUG_0);
+		
 		//nrk_gpio_clr(DEBUG_0);
 		
     success = 1;
@@ -393,7 +393,7 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
         success = !(mrf_read_short(TXSTAT) & 0x01);
     }
     
-		//printf("tx_pkt success = %d\r\n",success);
+		printf("tx_pkt success = %d\r\n",success);
     // Increment sequence, return result
     rfSettings.txSeqNumber++;
 		//printf("packet sent at %d, %d \r \n", _nrk_high_speed_timer_get(), _nrk_os_timer_get());
@@ -454,6 +454,8 @@ uint8_t rf_tx_packet(RF_TX_INFO *pRTI)
     
     // Wait for Tx to finish
     while(!tx_status_ready);
+		
+		nrk_gpio_toggle(DEBUG_0);
     
     success = 1;
     if(auto_ack_enable || pRTI->ackRequest) {
@@ -514,11 +516,13 @@ extern "C" void EINT3_IRQHandler(void)
     flags = mrf_read_short(INTSTAT);        // Read radio interrupt flags
 	
 		if(flags & 0x01) {
+			//nrk_gpio_toggle(DEBUG_0);
         tx_status_ready = 1;
     }
-    if(flags & 0x08) {
+    else if(flags & 0x08) {
 			
 				//nrk_led_toggle(GREEN_LED);
+				//nrk_gpio_toggle(DEBUG_1);				
         rf_parse_rx_packet();
         rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);
     }

@@ -453,7 +453,9 @@ uint8_t rf_tx_packet(RF_TX_INFO *pRTI)
     while(!tx_status_ready);
     
     success = 1;
+		// Debugging 
 		nrk_gpio_toggle(DEBUG_0);
+		
     if(auto_ack_enable || pRTI->ackRequest) {
         success = !(mrf_read_short(TXSTAT) & 0x01);
     }
