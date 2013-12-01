@@ -393,7 +393,7 @@ uint8_t rf_tx_tdma_packet(RF_TX_INFO *pRTI, uint16_t slot_start_time, uint16_t t
         success = !(mrf_read_short(TXSTAT) & 0x01);
     }
     
-		printf("tx_pkt success = %d\r\n",success);
+		//printf("tx_pkt success = %d\r\n",success);
     // Increment sequence, return result
     rfSettings.txSeqNumber++;
 		//printf("packet sent at %d, %d \r \n", _nrk_high_speed_timer_get(), _nrk_os_timer_get());
@@ -501,7 +501,7 @@ void rf_parse_rx_packet(void)
     
     // Re-enable Rx when done parsing
     rf_rx_on();
-    
+    printf("I am here \r\n");
 }
 
 extern "C" void EINT3_IRQHandler(void)
@@ -514,17 +514,21 @@ extern "C" void EINT3_IRQHandler(void)
     LPC_GPIOINT->IO2IntClr |= (1 << 4);     // Clear mbed interrupt flag
     
     flags = mrf_read_short(INTSTAT);        // Read radio interrupt flags
-	
-		if(flags & 0x01) {
-			//nrk_gpio_toggle(DEBUG_0);
-        tx_status_ready = 1;
-    }
-    else if(flags & 0x08) {
+	   printf("%d\r\n",flags);
+		  /*
+		  if(flags & 0x08) {
+				// Reception, when packet arrives
+				nrk_gpio_toggle(DEBUG_1);				
+        rf_parse_rx_packet();								
+        rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);		
+        //tx_status_ready = 1;				
+			}*/
 			
-				//nrk_led_toggle(GREEN_LED);
-				//nrk_gpio_toggle(DEBUG_1);				
-        rf_parse_rx_packet();
-        rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);
-    }
+			if(flags & 0x01) {
+				 //transmission , triggered when transmission is complete
+				nrk_gpio_toggle(DEBUG_0);
+        tx_status_ready = 1;				
+			} 
+			
 }
 

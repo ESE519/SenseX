@@ -36,36 +36,48 @@
 
 //#define LED_DEBUG_RTL
 
-uint16_t global_slot;
-uint16_t current_global_slot;
-uint16_t global_cycle;
+static uint16_t global_slot;
+static uint16_t current_global_slot;
+static uint16_t global_cycle;
 
-uint16_t last_sync_slot;
-uint16_t slot_start_time;
+static uint16_t last_sync_slot;
+static uint16_t slot_start_time;
 
 
-uint8_t _rtl_sync_ok;
-uint8_t _rtl_time_token; 
-uint8_t _rtl_time_token_status;
+static uint8_t _rtl_sync_ok;
+static uint8_t _rtl_time_token; 
+static uint8_t _rtl_time_token_status;
 
-RF_TX_INFO rtl_tsync_tx;
-char rtl_tsync_buf[PKT_DATA_START];
-uint8_t _rtl_contention_slots;
+static RF_TX_INFO rtl_tsync_tx;
+static char rtl_tsync_buf[PKT_DATA_START];
+static uint8_t _rtl_contention_slots;
+
 RF_RX_INFO rtl_rfRxInfo;
-uint8_t rtl_rx_data_ready;
-volatile uint8_t rtl_rx_slot;
-volatile char rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];
-
 RF_TX_INFO rtl_rfTxInfo;	
-RTL_TX_INFO	rtl_tx_info[TDMA_FRAME_SLOTS+1];
 
 
-uint16_t rtl_abs_tx_slot;
-uint8_t rtl_abs_tx_ready; 
-uint32_t rtl_tx_data_ready;
-rtl_param_t rtl_param;
-uint32_t rtl_tdma_rx_mask;
-uint32_t rtl_tdma_tx_mask;
+static rtl_param_t rtl_param;
+static rtl_node_mode_t rtl_node_mode; // Declared Extern
+
+
+static uint8_t rtl_rx_data_ready;
+
+
+static volatile uint8_t rtl_rx_slot;
+static volatile char rtl_rx_buf[RF_MAX_PAYLOAD_SIZE];
+
+static RTL_TX_INFO	rtl_tx_info[TDMA_FRAME_SLOTS+1];
+
+
+static uint16_t rtl_abs_tx_slot;
+
+static uint8_t rtl_abs_tx_ready; 
+static uint32_t rtl_tx_data_ready;
+
+
+
+static uint32_t rtl_tdma_rx_mask;
+static uint32_t rtl_tdma_tx_mask;
 
 void (*rx_callback)(uint8_t slot);
 void (*tx_callback)(uint8_t slot); //Declared Extern
@@ -76,16 +88,14 @@ void (*cycle_callback)(uint16_t global_cycle); // cycles since the epoch,Declare
 static nrk_task_type rtl_task;   //Declared static by tharun on 11/22
 static NRK_STK rtl_task_stack[RT_LINK_STACK_SIZE];//declared static by tharun on 11/22
 
-rtl_node_mode_t rtl_node_mode; // Declared Extern
-
 // some handy book keeping values
-uint16_t last_slot; 	//Declared Extern
-nrk_time_t last_slot_time; //Declared Extern
+static uint16_t last_slot; 	//Declared Extern
+static nrk_time_t last_slot_time; //Declared Extern
  /************************************rt_scheduler.h**************************************
  **************************************Declarations**************************************/
-uint8_t rtl_sched[16];            // only one since you can TX and RX on the same slot,Decleared Extern
-uint8_t rtl_sched_cache[32];				//Declared Extern
-uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
+static uint8_t rtl_sched[16];            // only one since you can TX and RX on the same slot,Decleared Extern
+static uint8_t rtl_sched_cache[32];				//Declared Extern
+static uint16_t rtl_abs_wakeup[MAX_ABS_WAKEUP];  // MSB is the repeat flag
 
 uint16_t prev_offset; //Declared Extern
 uint16_t rtl_drift_rate;//Declared Extern
@@ -950,8 +960,8 @@ void _rtl_tx (uint8_t slot)
 #endif
     //rf_tx_packet (rtl_rfTxInfo[slot]);
 		
-		//rf_tx_packet(&rtl_rfTxInfo);
-    rf_tx_tdma_packet (&rtl_rfTxInfo , slot_start_time, rtl_param.tx_guard_time);
+		rf_tx_packet(&rtl_rfTxInfo);
+    //rf_tx_tdma_packet (&rtl_rfTxInfo , slot_start_time, rtl_param.tx_guard_time);
     rtl_tx_data_ready &= ~((uint32_t) 1 << slot);       // clear the flag
     if (slot >= (TDMA_FRAME_SLOTS - _rtl_contention_slots))
         _rtl_contention_pending = 0;
@@ -1112,6 +1122,7 @@ void _rtl_rx (uint8_t slot)
 #endif
     rf_set_rx (&rtl_rfRxInfo, rtl_param.channel);       // sets rx buffer and channel 
     rf_polling_rx_on ();
+		rf_rx_on();
     //timeout = _nrk_get_high_speed_timer();
     //timeout+=rtl_param.rx_timeout;
     // FIXME: Change back to high speed timer with overflow catching
@@ -1172,7 +1183,7 @@ void _rtl_rx (uint8_t slot)
 			// XXX HUGE HACK!
 			// This shouldn't happen, but it does.  This should
 			// be fixed soon.
-			printf( "mismatch coord: %d %d\r\n",global_slot,tmp );			
+			//printf( "mismatch coord: %d %d\r\n",global_slot,tmp );			
 			global_slot=tmp;
 			}	
       //printf ("my slot = %d  rx slot = %d\r\n", global_slot, tmp);
@@ -1255,14 +1266,14 @@ return rtl_rfRxInfo.pPayload;
 	 rtl_rx_pkt_signal=nrk_signal_create();
 		 if(rtl_rx_pkt_signal==NRK_ERROR)
 		{
-		nrk_kprintf(PSTR("RT-Link ERROR: creating rx signal failed\r\n"));
+		printf("RT-Link ERROR: creating rx signal failed\r\n");
 		nrk_kernel_error_add(NRK_SIGNAL_CREATE_ERROR,nrk_cur_task_TCB->task_ID);
 		//return NRK_ERROR;
 		}
 	  rtl_tx_done_signal=nrk_signal_create();
 		 if(rtl_tx_done_signal==NRK_ERROR)
 		{
-		nrk_kprintf(PSTR("RT-Link ERROR: creating tx signal failed\r\n"));
+		printf("RT-Link ERROR: creating tx signal failed\r\n");
 		nrk_kernel_error_add(NRK_SIGNAL_CREATE_ERROR,nrk_cur_task_TCB->task_ID);
 		//return NRK_ERROR;
 		}
@@ -1313,7 +1324,7 @@ return rtl_rfRxInfo.pPayload;
 		rtl_param.tx_guard_time = TX_GUARD_TIME;  // 144uS  410-266 // Putting 0.5 ms as the guard time /* Tharun */
 		//rtl_param.tx_guard_time = 1600;  // 144uS  410-266
 		rtl_param.channel = 9;
-		rtl_param.mac_addr = 0x1980;
+		rtl_param.mac_addr = 0x0000;
 
 	for (i = 0; i < 16; i++) {
 			rtl_sched[i] = 0;
@@ -1334,22 +1345,17 @@ return rtl_rfRxInfo.pPayload;
 		rf_init (&rtl_rfRxInfo, rtl_param.channel, 0xffff, 0);
 		rf_set_cca_thresh(-45);
 		rf_addr_decode_disable();
-		rf_auto_ack_disable();
-		
-		
+		rf_auto_ack_disable();		
 }
 	
 void rtl_nw_task ()
 	{
 		uint8_t slot;
 		uint32_t slot_mask;
-		uint8_t i, k, val, j, frames;
 		int8_t n;
 		uint8_t timeout;
-		uint16_t next_slot_offset, tmp; 
-		uint8_t blink,skip_rxtx;
-
-		blink = 0;
+		uint16_t next_slot_offset;
+		uint16_t tmp;
 		
 		_rtl_ready = 0;
 	   
@@ -1358,8 +1364,6 @@ void rtl_nw_task ()
 		}while (_rtl_ready == 0);
 		_rtl_ready = 1;
 		
-
-		skip_rxtx=0;
 		last_slot = 0;
 		nrk_time_get (&last_slot_time);
 		while (1) {
@@ -1371,13 +1375,6 @@ void rtl_nw_task ()
 			slot_start_time=_nrk_high_speed_timer_get(); /* returns value between 0 and 65535 */
 			//printf("slot start time %d", slot_start_time); // comes out to be 772 - 775
 			nrk_time_get (&last_slot_time);
-			last_slot = global_slot;
-			
-			//printf("hi");
-			if (last_slot == 1025)
-				last_slot = 0;
-		
-			current_global_slot = global_slot;
 			
 			if (global_slot >= MAX_SLOTS) {
 				global_slot = 0;
@@ -1395,23 +1392,7 @@ void rtl_nw_task ()
 			if (slot_callback != NULL)
 				slot_callback (global_slot);
 		
-		if (rtl_node_mode == RTL_MOBILE ){
-			if ( global_slot==last_sync_slot+1 ) 
-				{
-				// Wait for packet
-				// Sync on packet
-				// reset timer at the start of next slot
-				// set global_slot to slot of rx packet+1
-				//while (rtl_rx_data_ready != 0)
-					//nrk_wait_until_next_period ();
-				while (_rtl_rx_sync () == 0);
-				//_nrk_stop_high_speed_timer();  
-				//_nrk_reset_high_speed_timer();  
-				//_nrk_start_high_speed_timer();  
-				}
-			}
-		
-		 // This call is required to clear abs schedules
+			 // This call is required to clear abs schedules
 			if (_rtl_match_abs_wakeup (global_slot) == 1) {
 				//printf( "Application Timer!\n" );
 				if (abs_callback != NULL)
@@ -1440,99 +1421,45 @@ void rtl_nw_task ()
 					next_slot_offset);
 	#endif
 			// FIXME _rtl_set_next_wakeup (next_slot_offset);
-		slot = global_slot % 32;
-		slot_mask = ((uint32_t) 1) << slot;
+			slot = global_slot % 32;
+			slot_mask = ((uint32_t) 1) << slot;
 		
     // Coordinator always TX on slot 0
-	  if (rtl_node_mode == RTL_COORDINATOR && global_slot==0) 
-		{
+			if (rtl_node_mode == RTL_COORDINATOR && global_slot==0) 
+			{
 			//printf("sync token time \r \n");
-			_rtl_time_token++;  // Coordinator increases sync token
-			if(_rtl_time_token>127) _rtl_time_token=0;
-		}
-		
-		
-		if (rtl_node_mode == RTL_COORDINATOR && slot==0)  {
+				_rtl_time_token++;  // Coordinator increases sync token
+				if(_rtl_time_token>127) _rtl_time_token=0;			
 			#ifdef LED_DEBUG_RTL
 				nrk_led_toggle(GREEN_LED);
 			#endif
 			_rtl_time_token_status=RTL_TOKEN_NOT_SENT; 
-					// generate explicit packet
-					// When the link layer receives an explicit sync, it does not block buffers
-					// and does not signal applications
-					rtl_tsync_tx.pPayload=rtl_tsync_buf;
-					// set explicit time sync flag 
-					rtl_tsync_buf[TIME_SYNC_TOKEN]|=0x80;  
-					rtl_tsync_tx.length=PKT_DATA_START;					
-					if(slot>(TDMA_FRAME_SLOTS-_rtl_contention_slots))
-					{ 
-						if(_rtl_contention_pending==0) 
-						{
-							//printf( "cs" );
-							rtl_tx_pkt (rtl_tsync_tx.pPayload ,rtl_tsync_tx.length, RTL_CONTENTION);//CM:Palyed with the variables
-						} 
-						//else printf( "already pending\r\n" );
+			// generate explicit packet When the link layer receives an explicit sync, it does not block buffers and does not signal applications
+			rtl_tsync_tx.pPayload=rtl_tsync_buf;
+			// set explicit time sync flag 
+			rtl_tsync_buf[TIME_SYNC_TOKEN]|=0x80;  
+			rtl_tsync_tx.length=PKT_DATA_START;					
+			if(slot>(TDMA_FRAME_SLOTS-_rtl_contention_slots))
+			{ 
+				if(_rtl_contention_pending==0) 
+					{
+						rtl_tx_pkt (rtl_tsync_tx.pPayload ,rtl_tsync_tx.length, RTL_CONTENTION);//CM:Palyed with the variables
 					} 
-					else
-					{						
-						rtl_tx_pkt (rtl_tsync_tx.pPayload,rtl_tsync_tx.length, slot);//CM:Palyed with the variables
-						//printf( "ss" );
-					}
-					_rtl_time_token_status=RTL_TOKEN_SENT;
-					_rtl_tx (slot);
-				}
-
-		
-
-		// If no data needs to be sent but time token needs to be passed, generate
-		// explicit time sync packet.
-		if (_rtl_time_token_status==RTL_TOKEN_NOT_SENT)
-		{
-		//printf( "tns %d %d\r\n",slot,_rtl_contention_pending );
-			if(slot_mask & rtl_tdma_tx_mask )  // Yes it is your TX slot
-			{
-				if((slot_mask & rtl_tx_data_ready) == 0)  // No app data to send
-				{
-					// generate explicit packet
-					// When the link layer receives an explicit sync, it does not block buffers
-					// and does not signal applications
-					rtl_tsync_tx.pPayload=rtl_tsync_buf;
-					// set explicit time sync flag 
-					rtl_tsync_buf[TIME_SYNC_TOKEN]|=0x80;  
-					rtl_tsync_tx.length=PKT_DATA_START;					
-					if(slot>(TDMA_FRAME_SLOTS-_rtl_contention_slots))
-					{ 
-						if(_rtl_contention_pending==0) 
-						{
-							//printf( "cs" );
-							rtl_tx_pkt (rtl_tsync_tx.pPayload ,rtl_tsync_tx.length, RTL_CONTENTION);//CM:Palyed with the variables
-						} 
-						//else printf( "already pending\r\n" );
-					} 
-					else
-					{						
-						rtl_tx_pkt (rtl_tsync_tx.pPayload,rtl_tsync_tx.length, slot);//CM:Palyed with the variables
-						//printf( "ss" );
-					}
-					_rtl_time_token_status=RTL_TOKEN_SENT;
-				}
-				
+			} 
+			else
+			{						
+					rtl_tx_pkt (rtl_tsync_tx.pPayload,rtl_tsync_tx.length, slot);//CM:Palyed with the variables
 			}
-				//else printf( "no slot\r\n" );			
-		
-				//else printf( "piggy back\r\n" );
-				
-		}
-		
-		//printf(" last sync slot %d \r \n", last_sync_slot);  // comes out as 0
-		if(global_slot != last_sync_slot)
+			_rtl_time_token_status=RTL_TOKEN_SENT;
+			_rtl_tx (slot);
+		}		
+
+		if(global_slot != 0)
 		{
 			// if TX slot mask and ready flag, send a packet
 			if (slot_mask & rtl_tx_data_ready & rtl_tdma_tx_mask)
-			{
-			
-				_rtl_tx (slot); 
-			//printf( "sent %d\r\n",slot );
+			{			
+				_rtl_tx (slot); 			
 			}
 			// if RX slot mask and RX buffer free, try to receive a packet
 			else if ((slot_mask & rtl_tdma_rx_mask) && (rtl_rx_data_ready == 0))
@@ -1546,48 +1473,24 @@ void rtl_nw_task ()
 				rtl_abs_tx_ready = 0;
 			}
 		}
-
-	//    printf( "%d\r\n",global_slot);
-	// Set correct slot for next wakeup
-	//	printf( "s %d nw %d ",global_slot,next_slot_offset );
 		   
-		if(global_slot==last_sync_slot && rtl_node_mode!=RTL_COORDINATOR)
-		{
-			global_slot++;
-			nrk_wait_until_ticks(5);
-		}
-		else
-		{
-			//printf("nso is %d, gs is %d, slot %d \r \n", next_slot_offset, global_slot, global_slot%32);
-			global_slot += next_slot_offset;
-			//printf("global slot is %d %d \r \n", global_slot, slot%32);
-			//nrk_clr_led (1);
+		global_slot += next_slot_offset;
+		nrk_wait_until_next_n_periods (next_slot_offset);
+
 		#ifdef LED_SLOT_DEBUG
 		nrk_led_clr(0);
 		#endif
 
 		#ifdef GPIO_SLOT_DEBUG
 		nrk_gpio_clr(NRK_DEBUG_0);
-		#endif
-			
-			//printf("%d \r \n", _nrk_os_timer_get());
-			nrk_wait_until_next_n_periods (next_slot_offset);
-			
+		#endif						
 		#ifdef LED_SLOT_DEBUG
 		nrk_led_set(0);
-		#endif
-		#ifdef GPIO_SLOT_DEBUG
-		nrk_gpio_set(NRK_DEBUG_0);
 		#endif
 		}
 			//nrk_set_led (1);
 			// Set last_slot_time to the time of the start of the slot
 	}
-	}	
-
-
-
-
 
 void rtl_start() 
 {

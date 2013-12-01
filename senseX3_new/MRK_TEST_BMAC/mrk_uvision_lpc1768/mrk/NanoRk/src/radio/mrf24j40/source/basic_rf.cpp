@@ -432,13 +432,15 @@ extern "C" void EINT3_IRQHandler(void)
     LPC_GPIOINT->IO2IntClr |= (1 << 4);     // Clear mbed interrupt flag
     
     flags = mrf_read_short(INTSTAT);        // Read radio interrupt flags
-	
+		
 		if(flags & 0x01) {
-        tx_status_ready = 1;
+			nrk_gpio_toggle(DEBUG_0);
+      tx_status_ready = 1;
     }
     if(flags & 0x08) {
 			
 				//nrk_led_toggle(GREEN_LED);
+				nrk_gpio_toggle(DEBUG_1);
         rf_parse_rx_packet();
         rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);
     }

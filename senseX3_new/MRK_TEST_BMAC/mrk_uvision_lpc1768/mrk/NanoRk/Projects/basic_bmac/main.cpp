@@ -81,7 +81,7 @@ void rx_task ()
   // if you wish to do a zero-copy buffer switch
   bmac_rx_pkt_set_buffer (rx_buf, RF_MAX_PAYLOAD_SIZE);
 
-  while (1) {
+  while (1) { /*
     // Wait until an RX packet is received
     val = bmac_wait_until_rx_pkt ();
 		
@@ -99,7 +99,7 @@ void rx_task ()
     bmac_rx_pkt_release ();
 		
 		// this is necessary
-    nrk_wait_until_next_period ();
+    nrk_wait_until_next_period (); */
 
   }
 
@@ -141,8 +141,8 @@ void tx_task ()
   ctr_cnt[0]=0; ctr_cnt[1]=0; ctr_cnt[2]=0; ctr_cnt[3]=0;
   cnt = 0;
 	
-  while (1) {
-    // Build a TX packet
+  while (1) {  
+    // Build a TX packet 
     sprintf (tx_buf, "This is a test %d", cnt);
     nrk_led_set (BLUE_LED);
 		
@@ -162,16 +162,9 @@ void tx_task ()
     // bmac_addr_decode_dest_mac(uint16_t DST_ADDR);  // 0xFFFF is broadcast
     // bmac_addr_decode_enable();
     // bmac_addr_decode_disable();
-/*
-     ctr_cnt[0]=cnt; 
-     if(ctr_cnt[0]==255) ctr_cnt[1]++; 
-     if(ctr_cnt[1]==255) ctr_cnt[2]++; 
-     if(ctr_cnt[2]==255) ctr_cnt[3]++; 
-     // You need to increase the ctr on each packet to make the 
-     // stream cipher not repeat.
-     bmac_encryption_set_ctr_counter(&ctr_cnt,4);
 
-*/  // For blocking transmits, use the following function call.
+
+ // For blocking transmits, use the following function call.
     // For this there is no need to register  
      val=bmac_tx_pkt(tx_buf, strlen(tx_buf));
 		 if(val==NRK_OK) cnt++;
@@ -195,9 +188,8 @@ void tx_task ()
     printf("Tx task sent data!\r\n");
     nrk_led_clr (BLUE_LED);
 		printf("tx_task PID=%d\r\n", nrk_get_pid ());
-    nrk_wait_until_next_period ();
-  }
-
+    nrk_wait_until_next_period (); 
+  } 
 }
 
 void nrk_create_taskset ()
@@ -218,7 +210,8 @@ void nrk_create_taskset ()
   RX_TASK.offset.nano_secs = 0;
   nrk_activate_task (&RX_TASK);
 
-  TX_TASK.task = tx_task;
+  
+	TX_TASK.task = tx_task;
   nrk_task_set_stk( &TX_TASK, tx_task_stack, NRK_APP_STACKSIZE);
   TX_TASK.prio = 2;
   TX_TASK.FirstActivation = TRUE;
