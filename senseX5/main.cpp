@@ -41,6 +41,7 @@
 
 #define MY_TX_SLOT  6
 #define MY_RX_SLOT  22
+#define MY_RX_SLOT2 26
 
 
 
@@ -99,7 +100,8 @@ void Task1()
   //rtl_init (RTL_COORDINATOR);
   rtl_init (RTL_MOBILE);
   rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
-  rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 ); 
+  rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 );
+	//rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
 //  rtl_set_contention(8,1);
   rtl_start();
   

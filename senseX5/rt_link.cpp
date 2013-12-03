@@ -1090,14 +1090,17 @@ void _rtl_rx (uint8_t slot)
 	cnt = 0;
 	timeout = _nrk_os_timer_get();
 	timeout += 10;
-	while((n = rf_rx_check_fifop()) != 0) {
+	while((n = rf_rx_check_fifop()) == 0) {
+		 
 		 if (_nrk_os_timer_get() > timeout) {
-							//printf("packet timed out"); // added by tharun
+							if (rtl_node_mode != RTL_COORDINATOR)
+								_rtl_sync_ok = 0;						
             	rf_rx_off ();
 							return;
 		 }
 	}
 	
+	//printf("%d \r\n", n);	
 	timeout = _nrk_os_timer_get();
 	timeout += 5;
 	while((n = rf_rx_packet()) == 0) {
@@ -1368,8 +1371,9 @@ void rtl_nw_task ()
 
 	
  	if (rtl_node_mode == RTL_MOBILE ){		
-		if ( global_slot==last_sync_slot+1 )		
+		if ( (global_slot==last_sync_slot+1) || (!_rtl_sync_ok) )		
 				{				
+					
 					
             // Wait for packet
             // Sync on packet
@@ -1466,19 +1470,20 @@ void rtl_nw_task ()
 	
 	if(global_slot!=last_sync_slot)
 	{
-		nrk_high_speed_timer_wait(860, 4);
-
+		//nrk_high_speed_timer_wait(860, 2);
+		
 	// if TX slot mask and ready flag, send a packet
         if (slot_mask & rtl_tx_data_ready & rtl_tdma_tx_mask)
 	    {
-						printf("tx %d \r\n", _nrk_high_speed_timer_get());
+						//printf("tx %d \r\n", _nrk_high_speed_timer_get());
+						//nrk_high_speed_timer_wait(866,3);
             _rtl_tx (slot); 
 	    //printf( "sent %d\r\n",slot );
 	    }
 	// if RX slot mask and RX buffer free, try to receive a packet
         else if ((slot_mask & rtl_tdma_rx_mask) && (rtl_rx_data_ready == 0))
             { 
-							printf("rx %d \r\n", _nrk_high_speed_timer_get());
+							//printf("rx %d \r\n", _nrk_high_speed_timer_get());
 	      _rtl_rx (slot);
 	    } 
         /*else if (global_slot == rtl_abs_tx_slot) {
@@ -1518,6 +1523,8 @@ void rtl_nw_task ()
 	nrk_gpio_set(NRK_DEBUG_0);
 	#endif
 	}
+	
+	
         //nrk_set_led (1);
         // Set last_slot_time to the time of the start of the slot
         }
