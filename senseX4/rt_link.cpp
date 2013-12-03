@@ -892,6 +892,7 @@ void rtl_rx_pkt_release()
  */
 void _rtl_tx (uint8_t slot)
 {
+	nrk_gpio_set(DEBUG_0);
 	int8_t explicit_tsync;    
   
 	if (rtl_sync_status () == 0)
@@ -922,7 +923,6 @@ void _rtl_tx (uint8_t slot)
     rtl_rfTxInfo.pPayload[TIME_SYNC_TOKEN]|= 0x80;
 	}
 	
-	printf("%d \r\n", global_slot);
 	 
 									// MSB (explicit time slot flag)
 
@@ -933,7 +933,7 @@ void _rtl_tx (uint8_t slot)
     nrk_led_toggle(RED_LED);
 #endif
     //rf_tx_packet (rtl_rfTxInfo[slot]);
-		
+	
 		rf_tx_packet(&rtl_rfTxInfo);
     //rf_tx_tdma_packet (&rtl_rfTxInfo , slot_start_time, rtl_param.tx_guard_time);
     rtl_tx_data_ready &= ~((uint32_t) 1 << slot);       // clear the flag
@@ -950,6 +950,8 @@ void _rtl_tx (uint8_t slot)
 #ifdef GPIO_TX_DEBUG
     nrk_gpio_clr (NRK_DEBUG_1);
 #endif
+
+	nrk_gpio_clr(DEBUG_0);
 }	
 
 void rtl_set_slot_callback (void (*fp)(uint16_t))
@@ -1080,6 +1082,9 @@ void _rtl_rx (uint8_t slot)
 	uint8_t cnt;
 	uint16_t timeout;
 	uint16_t tmp;
+	
+	
+	rf_rx_on();
 	
 	cnt = 0;
 	timeout = _nrk_os_timer_get();
@@ -1276,7 +1281,7 @@ return rtl_rfRxInfo.pPayload;
 		// Setup the cc2420 chip
 		//set up the mrf24j20 chip in our case
 		rf_init (&rtl_rfRxInfo, rtl_param.channel, 0xffff, 0);
-		rf_rx_on();
+		//rf_rx_on();
 		rf_set_cca_thresh(-45);
 		rf_addr_decode_disable();
 		rf_auto_ack_disable();		
@@ -1298,8 +1303,9 @@ void rtl_nw_task ()
 		}while (_rtl_ready == 0);
 		_rtl_ready = 1;
 
-		while (1) {			
-			
+		while (1) {						
+			slot_start_time=_nrk_high_speed_timer_get();
+			printf("gs %d \r\n", global_slot);
 			if (global_slot >= MAX_SLOTS) {
 				global_slot = 0;
 				global_cycle++;
@@ -1309,15 +1315,60 @@ void rtl_nw_task ()
 			
 				_rtl_clear_sched_cache ();
 
-				if (rtl_node_mode == RTL_COORDINATOR) {
-					_rtl_sync_ok = 1;
-        }
-			}
+			
+			}		
+			
+			if (rtl_node_mode == RTL_COORDINATOR) {
+				_rtl_sync_ok = 1;
+       }
+			
+			if (!_rtl_sync_ok) {
+				rf_rx_on();
+				while((n = rf_rx_check_fifop()) != 0) {
+				}
+				while((n = rf_rx_packet()) == 0) {
+				}
+			//printf("failure3=%d\r\n",rx_failure_cnt);
+			rf_rx_off();
+			if (n == 1) 
+			{
+				rtl_rx_slot = slot;
+				tmp = rtl_rfRxInfo.pPayload[GLOBAL_SLOT];
+				tmp <<= 8;
+				tmp |= rtl_rfRxInfo.pPayload[GLOBAL_SLOT + 1];
+				if(tmp!=global_slot)
+				{
+				// XXX HUGE HACK!
+				// This shouldn't happen, but it does.  This should
+				// be fixed soon.
+				//printf( "mismatch coord: %d %d\r\n",global_slot,tmp );			
+				global_slot=tmp;
+				}	
+				//printf ("my slot = %d  rx slot = %d\r\n", global_slot, tmp);
+				if (rx_callback != NULL)
+						rx_callback (slot);
+				// check if packet is an explicit time sync packet
+			} // else printf( "Error = %d\r\n",(int8_t)n );        
+			_rtl_sync_ok = 1;
+		}
+					
 			
 			if (slot_callback != NULL)
 				slot_callback (global_slot);
 			
 			next_slot_offset = rtl_get_slots_until_next_wakeup (global_slot);
+			
+			tmp = _rtl_get_next_abs_wakeup (global_slot);
+      if (tmp != 0) {
+				if (next_slot_offset == 0)
+					next_slot_offset = tmp;
+				if (tmp < next_slot_offset)
+					next_slot_offset = tmp;
+      }
+        // Set next wakeup
+			if (next_slot_offset == 0) {
+				next_slot_offset = MAX_SLOTS - global_slot; //Wake at end of TDMA cycle
+      }                        
 			
 			slot = global_slot % 32;
       slot_mask = ((uint32_t) 1) << slot;
@@ -1338,16 +1389,12 @@ void rtl_nw_task ()
 					rtl_tx_pkt (rtl_tsync_tx.pPayload,rtl_tsync_tx.length, slot);//CM:Palyed with the variables
 				}
 				_rtl_time_token_status=RTL_TOKEN_SENT;
-				rf_rx_off();
 				_rtl_tx (slot);		
-				rf_rx_on();
 			}
 			
-			if (global_slot != 0) {				
-				if (slot_mask & rtl_tx_data_ready & rtl_tdma_tx_mask) {
-					rf_rx_off();
+			if ((global_slot != 0) && (_rtl_sync_ok)) {				
+				if (slot_mask & rtl_tx_data_ready & rtl_tdma_tx_mask) {					
 					_rtl_tx (slot);				
-					rf_rx_on();
 				}
 				else if ((slot_mask & rtl_tdma_rx_mask) && (rtl_rx_data_ready == 0)) {
 					_rtl_rx (slot);
@@ -1358,8 +1405,7 @@ void rtl_nw_task ()
         }
 			}
 			
-			global_slot += next_slot_offset;
-			
+			global_slot += next_slot_offset;			
 			nrk_wait_until_next_n_periods(next_slot_offset);
 		}
 	}			

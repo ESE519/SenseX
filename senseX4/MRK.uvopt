@@ -75,7 +75,7 @@
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
-      <CpuCode>0</CpuCode>
+      <CpuCode>8</CpuCode>
       <DllOpt>
         <SimDllName>SARMCM3.DLL</SimDllName>
         <SimDllArguments>-MPU</SimDllArguments>
@@ -103,6 +103,7 @@
         <tRmem>1</tRmem>
         <tRfunc>0</tRfunc>
         <tRbox>1</tRbox>
+        <tRtrace>0</tRtrace>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
         <nTsel>1</nTsel>
@@ -119,6 +120,11 @@
         <pMon>BIN\AGDIRDI.DLL</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>UL2CM3</Key>
+          <Name>UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</Name>
+        </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDARM</Key>
@@ -187,6 +193,9 @@
           <ItemText>0x0000001B</ItemText>
         </Mm>
       </MemoryWindow1>
+      <Tracepoint>
+        <THDelay>0</THDelay>
+      </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>0</periodic>
@@ -273,7 +282,7 @@
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>0</IsCurrentTarget>
       </OPTFL>
-      <CpuCode>0</CpuCode>
+      <CpuCode>8</CpuCode>
       <DllOpt>
         <SimDllName>SARM.DLL</SimDllName>
         <SimDllArguments>-cLPC236x</SimDllArguments>
@@ -301,6 +310,7 @@
         <tRmem>1</tRmem>
         <tRfunc>0</tRfunc>
         <tRbox>1</tRbox>
+        <tRtrace>0</tRtrace>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
         <nTsel>1</nTsel>
@@ -1406,6 +1416,9 @@
           <Expression></Expression>
         </Bp>
       </Breakpoint>
+      <Tracepoint>
+        <THDelay>0</THDelay>
+      </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>0</periodic>
@@ -1442,6 +1455,7 @@
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
@@ -1455,6 +1469,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\include\nrk_driver_list.h</PathWithFileName>
       <FilenameWithoutPath>nrk_driver_list.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1469,6 +1485,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_cpu.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_cpu.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1483,6 +1501,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_status.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_status.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1497,6 +1517,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_timer.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_timer.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1511,6 +1533,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\hal\LPC1768\nrk_watchdog.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_watchdog.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1525,6 +1549,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1539,6 +1565,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_error.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_error.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1553,6 +1581,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_events.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_events.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1567,6 +1597,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_idle_task.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_idle_task.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1581,6 +1613,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_reserve.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_reserve.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1595,6 +1629,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_scheduler.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_scheduler.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1609,6 +1645,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_stack_check.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_stack_check.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1623,6 +1661,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_stats.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_stats.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1637,6 +1677,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_task.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_task.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1651,6 +1693,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_time.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_time.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1665,6 +1709,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\hal_wait.cpp</PathWithFileName>
       <FilenameWithoutPath>hal_wait.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1672,13 +1718,15 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>23</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>619</TopLine>
-      <CurrentLine>642</CurrentLine>
+      <TopLine>310</TopLine>
+      <CurrentLine>316</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\platform\mbed\source\ulib.cpp</PathWithFileName>
       <FilenameWithoutPath>ulib.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1693,6 +1741,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\my_asm.s</PathWithFileName>
       <FilenameWithoutPath>my_asm.s</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1707,6 +1757,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\adc_driver.cpp</PathWithFileName>
       <FilenameWithoutPath>adc_driver.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1721,6 +1773,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\drivers\platform\mbed\ff_basic_sensor.cpp</PathWithFileName>
       <FilenameWithoutPath>ff_basic_sensor.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1735,6 +1789,8 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\kernel\source\nrk_driver.cpp</PathWithFileName>
       <FilenameWithoutPath>nrk_driver.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1742,13 +1798,15 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>6</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>26</TopLine>
-      <CurrentLine>607</CurrentLine>
+      <TopLine>484</TopLine>
+      <CurrentLine>493</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\net\bmac\bmac.cpp</PathWithFileName>
       <FilenameWithoutPath>bmac.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1756,13 +1814,15 @@
       <FileType>8</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>2</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>422</TopLine>
+      <CurrentLine>439</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\basic_rf.cpp</PathWithFileName>
       <FilenameWithoutPath>basic_rf.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
@@ -1777,6 +1837,40 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\mrk_uvision_lpc1768\mrk\NanoRk\src\radio\mrf24j40\source\MRF24J40.cpp</PathWithFileName>
       <FilenameWithoutPath>MRF24J40.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>25</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>19</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1278</TopLine>
+      <CurrentLine>1290</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\rt_link.cpp</PathWithFileName>
+      <FilenameWithoutPath>rt_link.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>26</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>7</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>52</TopLine>
+      <CurrentLine>58</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\main.cpp</PathWithFileName>
+      <FilenameWithoutPath>main.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
     </File>
   </Group>
 

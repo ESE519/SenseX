@@ -39,8 +39,8 @@
 #include "rt_link.h"
 
 
-#define MY_TX_SLOT  8 
-#define MY_RX_SLOT  6 
+#define MY_TX_SLOT  6
+#define MY_RX_SLOT  8 
 
 
 

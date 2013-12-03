@@ -176,6 +176,7 @@ void rf_init(RF_RX_INFO *pRRI, uint8_t channel, uint16_t panId, uint16_t myAddr)
 
 void rf_rx_on(void)
 {
+		nrk_gpio_set(DEBUG_1);		
     //mrf_power_on();
     //rf_flush_rx_fifo();
     rfSettings.receiveOn = true;
@@ -195,7 +196,7 @@ void rf_polling_rx_on(void)
 void rf_rx_off(void)
 {
     //mrf_power_off();
-		
+		nrk_gpio_clr(DEBUG_1);		
     rfSettings.receiveOn  = false;
     rx_ready = 0;
     mrf_write_short(BBREG1, 0x04);
@@ -434,12 +435,12 @@ extern "C" void EINT3_IRQHandler(void)
     flags = mrf_read_short(INTSTAT);        // Read radio interrupt flags
 	
 		if(flags & 0x01) {
-				nrk_gpio_toggle(DEBUG_0);
+				
         tx_status_ready = 1;
     }
     if(flags & 0x08) {			
 				//nrk_led_toggle(GREEN_LED);
-        nrk_gpio_toggle(DEBUG_1);
+        //nrk_gpio_toggle(DEBUG_1);
 				rf_parse_rx_packet();
         rfSettings.pRxInfo = rf_rx_callback(rfSettings.pRxInfo);
     }
