@@ -1522,6 +1522,7 @@ void rtl_nw_task ()
 	else
 	{
         global_slot += next_slot_offset;
+				nrk_wait_until_next_n_periods (next_slot_offset);
         //nrk_clr_led (1);
 	#ifdef LED_SLOT_DEBUG
 	nrk_led_clr(0);
@@ -1530,7 +1531,7 @@ void rtl_nw_task ()
 	#ifdef GPIO_SLOT_DEBUG
 	nrk_gpio_clr(NRK_DEBUG_0);
 	#endif
-        nrk_wait_until_next_n_periods (next_slot_offset);
+        
 	#ifdef LED_SLOT_DEBUG
 	nrk_led_set(0);
 	#endif

@@ -660,6 +660,7 @@ rtl_rfRxInfo.pPayload[GLOBAL_SLOT+1]=0xFF;
 	   	if(timer>RTL_TOKEN_TIMEOUT) 
 			{
 			timer=0;
+			break;
 		  //printf( "token timeout! %d\r\n",battery_save_cnt );
 			_rtl_time_token=0;
 			printf("rttoken %d \r\n", _rtl_time_token);
