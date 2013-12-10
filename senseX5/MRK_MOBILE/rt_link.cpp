@@ -651,17 +651,17 @@ rtl_rfRxInfo.pPayload[GLOBAL_SLOT+1]=0xFF;
 	// every OS tick 
 	if(last_nrk_tick!=_nrk_os_timer_get()) 
 		{
+			
 		//_nrk_stop_high_speed_timer();
 		//_nrk_reset_high_speed_timer();
-		//_nrk_start_high_speed_timer();		
+		//_nrk_start_high_speed_timer();
 		last_nrk_tick=_nrk_os_timer_get();
 	   	timer++;
-			//printf("%d \r\n", timer);
 	   	if(timer>RTL_TOKEN_TIMEOUT) 
 			{
 			timer=0;
-			break;
-		  //printf( "token timeout! %d\r\n",battery_save_cnt );
+			rf_polling_rx_on ();
+			//printf( "token timeout! %d\r\n",battery_save_cnt );
 			_rtl_time_token=0;
 			printf("rttoken %d \r\n", _rtl_time_token);
 			battery_save_cnt++;
@@ -1336,6 +1336,7 @@ void rtl_nw_task ()
     uint8_t timeout;
     uint16_t next_slot_offset, tmp; 
     uint8_t blink,skip_rxtx;
+		uint16_t sync_counter = 0;
 
     blink = 0;
 
@@ -1358,7 +1359,7 @@ void rtl_nw_task ()
 	// Need to calculate offset into TDMA slot starting now	
 	//_nrk_stop_high_speed_timer();  
 	//_nrk_reset_high_speed_timer();  
-	//_nrk_start_high_speed_timer();  
+	//_nrk_start_high_speed_timer();  	
         slot_start_time=_nrk_high_speed_timer_get();
 				//printf("sst %d \r\n", slot_start_time);
 	nrk_time_get (&last_slot_time);
@@ -1400,6 +1401,8 @@ void rtl_nw_task ()
 		//_nrk_start_high_speed_timer();  
 	    }
    }
+	
+		sync_counter++;
 	// This call is required to clear abs schedules
      
 			if (_rtl_match_abs_wakeup (global_slot) == 1) {				 
@@ -1483,6 +1486,7 @@ void rtl_nw_task ()
 
 	//printf("gs %d \r\n", global_slot);
 	
+	
 	if(global_slot!=last_sync_slot)
 	{
 		//nrk_high_speed_timer_wait(860, 2);
@@ -1492,7 +1496,12 @@ void rtl_nw_task ()
 	    {
 						//printf("tx %d \r\n", _nrk_high_speed_timer_get());
 						//nrk_high_speed_timer_wait(866,3);
-            _rtl_tx (slot); 
+            _rtl_tx (slot);
+						if ((sync_counter > 10) && (rtl_node_mode != RTL_COORDINATOR)) {
+							//printf("o \r\n");
+							_rtl_sync_ok = 0;
+							sync_counter = 0;
+						}
 	    //printf( "sent %d\r\n",slot );
 	    }
 	// if RX slot mask and RX buffer free, try to receive a packet
@@ -1513,6 +1522,7 @@ void rtl_nw_task ()
 //    printf( "%d\r\n",global_slot);
 // Set correct slot for next wakeup
 //	printf( "s %d nw %d ",global_slot,next_slot_offset );
+	
        
 	if(global_slot==last_sync_slot && rtl_node_mode!=RTL_COORDINATOR)
 	{
@@ -1522,6 +1532,7 @@ void rtl_nw_task ()
 	else
 	{
         global_slot += next_slot_offset;
+				nrk_wait_until_next_n_periods (next_slot_offset);
         //nrk_clr_led (1);
 	#ifdef LED_SLOT_DEBUG
 	nrk_led_clr(0);
@@ -1530,7 +1541,7 @@ void rtl_nw_task ()
 	#ifdef GPIO_SLOT_DEBUG
 	nrk_gpio_clr(NRK_DEBUG_0);
 	#endif
-        nrk_wait_until_next_n_periods (next_slot_offset);
+        
 	#ifdef LED_SLOT_DEBUG
 	nrk_led_set(0);
 	#endif
