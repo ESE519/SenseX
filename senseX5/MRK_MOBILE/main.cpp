@@ -39,11 +39,9 @@
 #include "rt_link.h"
 
 
-#define MY_TX_SLOT  6
-#define MY_RX_SLOT  22
-//#define MY_RX_SLOT2 15
-
-
+#define MY_TX_SLOT  17
+#define MY_RX_SLOT1  22
+#define MY_RX_SLOT2  9 
 
 NRK_STK Stack1[NRK_APP_STACKSIZE];
 nrk_task_type TaskOne;
@@ -88,7 +86,7 @@ void Task1()
 {
   uint8_t j, i;
   char *local_rx_buf;
-  uint8_t cnt;
+  uint8_t cnt,cont;
   int8_t rssi;
   uint8_t length,slot;
   uint16_t counter;
@@ -96,12 +94,12 @@ void Task1()
   printf( "Task1 PID=%d, MOBILE\r\n",nrk_get_pid());
   counter=0;
   cnt=0;
- 
+  cont=0;
   //rtl_init (RTL_COORDINATOR);
   rtl_init (RTL_MOBILE);
-  rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
-  rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 );
-	//rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
+	rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 );
+	rtl_set_schedule( RTL_RX, MY_RX_SLOT1, 1);
+	rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
 //  rtl_set_contention(8,1);
   rtl_start();
   
@@ -129,12 +127,12 @@ void Task1()
 	  else {
 		nrk_led_set(RED_LED);
     cnt++;
-    sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
+    sprintf( &tx_buf[PKT_DATA_START], "mobile1 %d", cnt ); 
 		length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
 		rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
-		printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT );
+		printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT);
 		nrk_led_clr(RED_LED);
-	  }
+	  }	  
 	  //nrk_wait_until_next_period(); 
 	  rtl_wait_until_rx_or_tx();
   	}

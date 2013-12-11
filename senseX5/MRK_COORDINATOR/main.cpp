@@ -40,8 +40,9 @@
 
 
 #define MY_TX_SLOT  22
-#define MY_RX_SLOT  6
-//#define MY_RX_SLOT2 15
+#define MY_RX_SLOT1 9
+#define MY_RX_SLOT2 17
+
 
 
 
@@ -100,8 +101,8 @@ void Task1()
   rtl_init (RTL_COORDINATOR);
   //rtl_init (RTL_MOBILE);
   rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
-  rtl_set_schedule( RTL_RX, MY_RX_SLOT, 1 );
-	//rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
+	rtl_set_schedule( RTL_RX, MY_RX_SLOT1, 1 );
+	rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
 //  rtl_set_contention(8,1);
   rtl_start();
   
@@ -129,7 +130,7 @@ void Task1()
 	  else {
 		nrk_led_set(RED_LED);
     cnt++;
-    sprintf( &tx_buf[PKT_DATA_START], "Hello World %d", cnt ); 
+    sprintf( &tx_buf[PKT_DATA_START], "coordinator %d", cnt ); 
 		length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
 		rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
 		printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT );
