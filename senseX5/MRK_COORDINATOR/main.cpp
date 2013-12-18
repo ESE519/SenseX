@@ -1,7 +1,6 @@
 /******************************************************************************
 *  Nano-RK, a real-time operating system for sensor networks.
-*  Copyright (C) 2007, Real-Time and Multimedia Lab, Carnegie Mellon University
-*  All rights reserved.
+*  Copyright (C) 2007, 
 *
 *  This is the Open Source Version of Nano-RK included as part of a Dual
 *  Licensing Model. If you are unsure which license to use please refer to:
@@ -39,7 +38,7 @@
 #include "rt_link.h"
 
 
-#define MY_TX_SLOT  22
+#define MY_TX_SLOT  22	
 #define MY_RX_SLOT1 9
 #define MY_RX_SLOT2 17
 
@@ -93,33 +92,47 @@ void Task1()
   int8_t rssi;
   uint8_t length,slot;
   uint16_t counter;
+	uint16_t rx_count,tx_count;
   volatile nrk_time_t t;
   printf( "Task1 PID=%d, COORDINATOR \r\n",nrk_get_pid());
   counter=0;
   cnt=0;
- 
+  uint16_t light, temp;
   rtl_init (RTL_COORDINATOR);
   //rtl_init (RTL_MOBILE);
   rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 ); 
 	rtl_set_schedule( RTL_RX, MY_RX_SLOT1, 1 );
-	rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
+	//rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
 //  rtl_set_contention(8,1);
   rtl_start();
   
   rtl_rx_pkt_set_buffer(rx_buf, RF_MAX_PAYLOAD_SIZE);
   nrk_kprintf( PSTR("start done\r\n") );
   while(!rtl_ready())  nrk_wait_until_next_period(); 
-  while(1) {	 
-	  if( rtl_rx_pkt_check()!=0 )
+	
+	tx_count = 0;
+	rx_count = 0;
+  while(1) {
+		if (tx_count >= 250) {
+			printf("Transmissions: %d \r\n", tx_count);
+			printf("Receptions: %d \r\n", rx_count);
+		} 
+		if (tx_count < 250) {				
+		if( rtl_rx_pkt_check()!=0 )
      {
        nrk_led_set(BLUE_LED);
 		   local_rx_buf=rtl_rx_pkt_get(&length, &rssi, &slot);
        printf( "Got Packet on slot %d %d: ",slot,length );
-       for(i=PKT_DATA_START; i<length; i++ )
+			 rx_count++;
+       
+			 for(i=PKT_DATA_START; i<length; i++ )
        {
 				printf( "%c",local_rx_buf[i] );
        }
-       printf("\r\n");
+			 printf("\r\n");
+			 //light = (rx_buf[PKT_DATA_START+2] << 8) + rx_buf[PKT_DATA_START];
+			 //temp = (rx_buf[PKT_DATA_START+6] << 8) + rx_buf[PKT_DATA_START+4];
+       //printf("LIGHT=%d , TEMP=%d\r\n",light, temp);
 			 rtl_rx_pkt_release();
        nrk_led_clr(BLUE_LED);
 			} 
@@ -130,15 +143,17 @@ void Task1()
 	  else {
 		nrk_led_set(RED_LED);
     cnt++;
-    sprintf( &tx_buf[PKT_DATA_START], "coordinator %d", cnt ); 
+    sprintf( &tx_buf[PKT_DATA_START], "Coordinator %d", cnt ); 
 		length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
 		rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
 		printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT );
+		tx_count++;
 		nrk_led_clr(RED_LED);
 	  }
 	  //nrk_wait_until_next_period(); 
 	  rtl_wait_until_rx_or_tx();
   	}
+	}	
 }
 
 void
@@ -155,7 +170,7 @@ nrk_create_taskset()
   TaskOne.period.secs = 1;
   TaskOne.period.nano_secs = 0;
   TaskOne.cpu_reserve.secs = 0;
-  TaskOne.cpu_reserve.nano_secs = 100*NANOS_PER_MS;
+  TaskOne.cpu_reserve.nano_secs = 100 * NANOS_PER_MS;
   TaskOne.offset.secs = 0;
   TaskOne.offset.nano_secs= 0;
   nrk_activate_task (&TaskOne);

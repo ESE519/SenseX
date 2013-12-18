@@ -27,7 +27,7 @@
 #ifndef _RTL_DEFS_H_
 #define _RTL_DEFS_H_
 
-#define RTL_NRK_TICKS_PER_SLOT 9
+#define RTL_NRK_TICKS_PER_SLOT 10
 // Length of TDMA slot in microseconds 
 // Granularity bound by RTL_TIME_TICK_US 
 #define RTL_SLOT_TIME_US (US_PER_TICK*(RTL_NRK_TICKS_PER_SLOT)) 

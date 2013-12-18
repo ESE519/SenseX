@@ -37,11 +37,17 @@
 #include "mbed.h"
 #include "basic_rf.h"
 #include "rt_link.h"
+//Sensor Payload
+#include <nrk_driver.h>
+#include <nrk_driver_list.h>
+#include <ff_basic_sensor.h>
 
-
-#define MY_TX_SLOT  9
+#define MY_TX_SLOT  17
 #define MY_RX_SLOT1  22
-#define MY_RX_SLOT2  17 
+//#define MY_RX_SLOT2  9 
+
+void nrk_register_drivers();
+//void sample_data(void);
 
 NRK_STK Stack1[NRK_APP_STACKSIZE];
 nrk_task_type TaskOne;
@@ -57,6 +63,7 @@ int
 main ()
 {
   nrk_setup_ports();
+	nrk_register_drivers();
   //nrk_setup_uart(UART_BAUDRATE_115K2);
 
   nrk_kprintf( PSTR("Starting up...\r\n") );
@@ -91,27 +98,54 @@ void Task1()
   uint8_t length,slot;
   uint16_t counter;
   volatile nrk_time_t t;
+	uint16_t tx_count, rx_count;
   printf( "Task1 PID=%d, MOBILE\r\n",nrk_get_pid());
   counter=0;
   cnt=0;
   cont=0;
+	uint8_t val,fd,fd2,buf[2],buf2[2];
+	uint16_t adc_int,adc_int2,light,temp;
+  uint8_t k,l,m,n;	
   //rtl_init (RTL_COORDINATOR);
   rtl_init (RTL_MOBILE);
 	rtl_set_schedule( RTL_TX, MY_TX_SLOT, 1 );
 	rtl_set_schedule( RTL_RX, MY_RX_SLOT1, 1);
-	rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
+	//rtl_set_schedule( RTL_RX, MY_RX_SLOT2, 1);
 //  rtl_set_contention(8,1);
   rtl_start();
   
   rtl_rx_pkt_set_buffer(rx_buf, RF_MAX_PAYLOAD_SIZE);
   nrk_kprintf( PSTR("start done\r\n") );
   while(!rtl_ready())  nrk_wait_until_next_period(); 
-  while(1) {	 
+	tx_count = 0;
+	rx_count = 0;
+  while(1) {	
+		if (tx_count >= 250) {
+			printf("Transmissions: %d \r\n", tx_count);
+			printf("Receptions: %d \r\n", rx_count);
+		}
+		if (tx_count < 250) {
+			
+		/*fd = nrk_open(FIREFLY_SENSOR_BASIC,READ);
+		wait_ms(1);
+		val = nrk_set_status(fd,SENSOR_SELECT,LIGHT);
+		val = nrk_set_status(fd2,SENSOR_SELECT,TEMP);
+		val = nrk_read(fd , &buf[0] , 2);
+		val = nrk_read(fd2 , &buf2[0] , 2);
+		adc_int = buf[0] + (buf[1]<<8);
+		adc_int2 = buf2[0] + (buf2[1]<<8);
+		light = adc_int;
+		temp = adc_int2;
+		k = light & 0xFF;
+		l = (light >> 8) & 0xFF;
+		m = temp & 0xFF;
+		n = (temp >> 8) & 0xFF;*/
 	  if( rtl_rx_pkt_check()!=0 )
      {
        nrk_led_set(BLUE_LED);
 		   local_rx_buf=rtl_rx_pkt_get(&length, &rssi, &slot);
        printf( "Got Packet on slot %d %d: ",slot,length );
+			 rx_count++;
        for(i=PKT_DATA_START; i<length; i++ )
        {
 				printf( "%c",local_rx_buf[i] );
@@ -127,15 +161,35 @@ void Task1()
 	  else {
 		nrk_led_set(RED_LED);
     cnt++;
-    sprintf( &tx_buf[PKT_DATA_START], "mobile2 %d", cnt ); 
+    sprintf( &tx_buf[PKT_DATA_START], "Mobile2 %d \r\n", cnt);
+		//printf(" %d %d %d %d \r\n",k,l,m,n);
+		/*tx_buf[PKT_DATA_START] = k;
+		tx_buf[PKT_DATA_START+1] = ' ';
+		tx_buf[PKT_DATA_START+2] = l;
+		tx_buf[PKT_DATA_START+3] = ' ';
+		tx_buf[PKT_DATA_START+4] = m;
+		tx_buf[PKT_DATA_START+5] = ' ';
+		tx_buf[PKT_DATA_START+6] = n;*/
 		length=strlen(&tx_buf[PKT_DATA_START])+PKT_DATA_START;
 		rtl_tx_pkt( tx_buf, length, MY_TX_SLOT );
 		printf( "Sending Packet on slot %d\r\n",MY_TX_SLOT);
+		tx_count++;
 		nrk_led_clr(RED_LED);
 	  }	  
 	  //nrk_wait_until_next_period(); 
 	  rtl_wait_until_rx_or_tx();
   	}
+	}
+		
+}
+
+
+
+void nrk_register_drivers()
+{
+	int8_t val;
+	val=nrk_register_driver(&dev_manager_ff_sensors , FIREFLY_SENSOR_BASIC);
+	if(val == NRK_ERROR) printf(PSTR("Failed\r\n"));
 }
 
 void
@@ -149,7 +203,7 @@ nrk_create_taskset()
   TaskOne.FirstActivation = TRUE;
   TaskOne.Type = BASIC_TASK;
   TaskOne.SchType = PREEMPTIVE;
-  TaskOne.period.secs = 1;
+  TaskOne.period.secs = 2;
   TaskOne.period.nano_secs = 0;
   TaskOne.cpu_reserve.secs = 0;
   TaskOne.cpu_reserve.nano_secs = 100*NANOS_PER_MS;

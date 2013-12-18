@@ -663,7 +663,7 @@ rtl_rfRxInfo.pPayload[GLOBAL_SLOT+1]=0xFF;
 			rf_polling_rx_on ();
 			//printf( "token timeout! %d\r\n",battery_save_cnt );
 			_rtl_time_token=0;
-			printf("rttoken %d \r\n", _rtl_time_token);
+			//printf("rttoken %d \r\n", _rtl_time_token);
 			battery_save_cnt++;
 			if(battery_save_cnt>RTL_BATTERY_SAVE_TIMEOUT)
 				{
@@ -726,8 +726,8 @@ rtl_rfRxInfo.pPayload[GLOBAL_SLOT+1]=0xFF;
       
         // check if this should be just greater than! 
 				//printf("%d %d \r\n", tmp_token, _rtl_time_token);
-		if(tmp_token >=_rtl_time_token || (_rtl_time_token>110 && tmp_token<10))
-		{						
+		//if(tmp_token >=_rtl_time_token || (_rtl_time_token>110 && tmp_token<10))
+		//{						
     		rtl_rx_slot = (global_slot ) % 32;
 		// only acccept sync if the token is greater than yours
 		if((rtl_rfRxInfo.pPayload[TIME_SYNC_TOKEN]&0x80)==0 )
@@ -760,7 +760,7 @@ rtl_rfRxInfo.pPayload[GLOBAL_SLOT+1]=0xFF;
 			printf( "tmp %d rtl %d\r\n",tmp_token,_rtl_time_token );
 		}*/
 
-    } //else printf( "Error n=%d %d\r\n", n, rtl_rfRxInfo.length);
+    //} //else printf( "Error n=%d %d\r\n", n, rtl_rfRxInfo.length);
 }
 #ifdef LED_DEBUG
     nrk_led_clr(1);
@@ -1106,7 +1106,7 @@ void _rtl_rx (uint8_t slot)
 	while((n = rf_rx_check_fifop()) == 0) {
 		 
 		 if (_nrk_os_timer_get() > timeout) {
-							if (rtl_node_mode != RTL_COORDINATOR)								
+							if ((rtl_node_mode != RTL_COORDINATOR) && (global_slot == 0))
 								_rtl_sync_ok = 0;						
             	rf_rx_off ();
 							return;
@@ -1353,7 +1353,8 @@ void rtl_nw_task ()
     skip_rxtx=0;
     last_slot = 0;
     nrk_time_get (&last_slot_time);
-    while (1) {			
+    while (1) {
+				//printf("%d \r\n", _nrk_high_speed_timer_get());
 			//printf("%d \r\n", rtl_abs_tx_slot);
 			
 	// Need to calculate offset into TDMA slot starting now	
